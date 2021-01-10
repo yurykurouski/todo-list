@@ -1,0 +1,80 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg, 
+    rgba(2, 0, 36, 1) 0%,
+     rgba(177, 0, 108, 1) 49%,
+      rgba(0, 212, 255, 1) 100%
+      );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+}
+
+.container {
+  background: #ffffff;
+  padding: 24px;
+
+  height: 50%;
+  overflow-y: auto;
+  width: 500px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 20px black;
+}
+
+.add-form {
+  form{
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  input{
+    flex-grow: 1;
+    height: 32px;
+    border: none;
+    border-bottom: solid black 2px; // ! ДЗ сделать что бы нижнее подчеркивание появлялось с анимацией
+    outline: none;
+  }
+
+  button[type='submit'] {
+    margin-left: 10px;
+    width: 38px;
+    border: #00d4ff;
+    color: white;
+    border-radius: 5px; 
+  }
+}
+
+.todo-list {
+  ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: flex;
+
+      span {
+        justify-content: right;
+      }
+
+      .delete-btn {
+        border: none;
+        background: none;
+      }
+
+      &.cheked {
+        span {
+          text-decoration: line-through;
+        }
+      }
+    }
+  }
+}
