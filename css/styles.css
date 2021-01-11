@@ -101,7 +101,7 @@ body {
 }
 
 .todo-list ol li.cheked span {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 .textEmptyVisible {

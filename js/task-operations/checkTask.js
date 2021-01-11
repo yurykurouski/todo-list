@@ -1,7 +1,8 @@
 export default function checkTask(event) { // ! здесь был баг при нажатии на чекбокс в массиве не менялся checked на true
-  const li = event.target.parentNode;
+  const { target } = event;   // * здесь пример деструткуризации, свойства(target, напрмер) можно записывать несколько - через запятую
+  const { parentNode: li, checked } = target;
 
-  if (event.target.checked) {
+  if (checked) {
     li.classList.add('cheked');
   } else {
     li.classList.remove('cheked');

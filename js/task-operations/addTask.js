@@ -40,5 +40,4 @@ export default function addTask(event) { //* вешаем обрабытия с�
   deleteButton.addEventListener('click', deleteTask);
 
   event.target.reset(); // очищаем форму
-
 }
