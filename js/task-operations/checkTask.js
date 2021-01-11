@@ -3,8 +3,8 @@ export default function checkTask(event) { // ! здесь был баг при 
   const { parentNode: li, checked } = target;
 
   if (checked) {
-    li.classList.add('cheked');
+    li.classList.add('checked');
   } else {
-    li.classList.remove('cheked');
+    li.classList.remove('checked');
   }
 }
