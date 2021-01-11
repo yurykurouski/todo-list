@@ -2,9 +2,11 @@ const addForm = document.querySelector('.add-form > form'); // находим ф
 
 const todoList = document.querySelector('.todo-list ol');
 
+const backgrTextEmpty = document.getElementById('textEmpty');
+
 let tasks = [];
 
-function checkTask(event) { 
+function checkTask(event) {  // ! здесь был баг при нажатии на чекбокс в массиве не менялся checked на true
   const li = event.target.parentNode;
 
   if (event.target.checked) {
@@ -14,14 +16,21 @@ function checkTask(event) {
   }
 }
 
-addForm.addEventListener('submit', (event) => { // вешаем обрабытия сабмит на форму
+function deleteTask() {
+  const item = this.parentNode;
+  const parent = item.parentNode;
+
+  parent.removeChild(item);
+}
+
+addForm.addEventListener('submit', (event) => { //* вешаем обрабытия сабмит на форму
   event.preventDefault(); // сброс стандартного поведения отправки формы
 
-  const formData = new FormData(event.target); // * Получаем все поля формы. FormData - стандартный класс от джса, структура данных
+  if (tasks) backgrTextEmpty.innerHTML = '';
 
-  const todoText = formData.get('text'); // получаем текст из инпута
+  const formData = new FormData(event.target); // * Получаем все поля формы. FormData - стандар2тный класс от джса, структура данных
 
-  console.log(todoText);
+  const todoText = formData.get('text'); //* получаем текст из инпута
 
   if (!todoText) {  
     return;
@@ -37,14 +46,21 @@ addForm.addEventListener('submit', (event) => { // вешаем обрабыти
   const newToDo = document.createElement('li'); 
 
   todoList.appendChild(newToDo);
-  newToDo.innerHTML = `<input type='checkbox' id=${tasks.length - 1}> <span>${todoText}</span> <button><i class="fas fa-trash-alt" class='delete-btn'></i> </button>`;
+  newToDo.innerHTML = `<input type='checkbox' id=chkBox${tasks.length - 1}> <span>${todoText}</span> <button id='delBtn${tasks.length - 1}'><i class="fas fa-trash-alt" class='delete-btn'></i> </button>`;
 
-  const checkBox = document.getElementById(`${tasks.length - 1}`);
+  const checkBox = document.getElementById(`chkBox${tasks.length - 1}`);
 
   checkBox.addEventListener('change', checkTask);
 
+  const deleteButton = document.getElementById(`delBtn${tasks.length - 1}`);
+
+  deleteButton.addEventListener('click', deleteTask);
+
   event.target.reset(); // очищаем форму
 });
+
+
+
 
 /*  ДЗ:
 1)Добавить анимацию на фокус для инпута(опдчеркивание инпута снизу, от центра в стороны)

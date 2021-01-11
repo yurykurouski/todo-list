@@ -1,6 +1,8 @@
-html, body {
+html,
+body {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 body {
   background: #020024;
@@ -8,7 +10,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; }
+  height: 100vh;
+}
 
 .container {
   background: #ffffff;
@@ -17,36 +20,94 @@ body {
   overflow-y: auto;
   width: 500px;
   border-radius: 5px;
-  box-shadow: 5px 5px 20px black; }
+  box-shadow: 5px 5px 20px black;
+}
 
 .add-form form {
   display: flex;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+}
 .add-form input {
   flex-grow: 1;
   height: 32px;
+  font-size: 20px;
   border: none;
-  border-bottom: solid black 2px;
-  outline: none; }
+  border-bottom: solid #e0e0e0 1px;
+  outline: none;
+}
+/* .add-form form ::placeholder {
+  line-height: 32px;
+  font-size: 16px;
+  color:#BDBDBD;
+  transition: 0.2s;
+}
+.add-form form :focus::placeholder{
+  top: -10px;
+  font-size: 10px;
+  line-height: 20px;
+  color:black;
+} */
+.form-label{
+  position: absolute;
+  pointer-events: none;
+  font-size: 20px;
+  margin-top: 7px;
+  transition: .3s;
+}
+.add-form input:focus~.form-label,
+.add-form form:not(:focus):valid~.form-label {
+  margin-top: -6px;
+  font-size: 10px;
+  color: #0288d1;
+}
 .add-form button[type='submit'] {
   margin-left: 10px;
-  width: 38px;
-  border: #00d4ff;
-  color: white;
-  border-radius: 5px; }
+  background: none;
+  outline: none;
+  border-style: none;
+}
+
+.highlight {
+  position: absolute;
+  margin-top: 34px;
+  width: 454px;
+
+  background-color: #0288d1;
+  height: 2px;
+  transition: 0.2s;
+  transform: scaleX(0);
+}
+.add-form input:focus~.highlight {
+  transform: scaleX(1);
+}
 
 .todo-list ol {
   list-style-type: none;
   margin: 0;
-  padding: 0; }
-  .todo-list ol li {
-    display: flex; }
-    .todo-list ol li span {
-      justify-content: right; }
-    .todo-list ol li .delete-btn {
-      border: none;
-      background: none; }
-    .todo-list ol li.cheked span {
-      text-decoration: line-through; }
+  padding: 0;
+}
 
+.todo-list ol li {
+  display: flex;
+}
+
+.todo-list ol li span {
+  justify-content: right;
+}
+
+.todo-list ol li .delete-btn {
+  border: none;
+  background: black;
+}
+
+.todo-list ol li.cheked span {
+    text-decoration: line-through;
+}
+
+.textEmptyVisible {
+  user-select: none;
+  font-size: 20px;
+  font-weight: 400;
+  color:#BDBDBD;
+}
 /*# sourceMappingURL=styles.css.map */
