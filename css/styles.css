@@ -17,10 +17,13 @@ body {
   background: #ffffff;
   padding: 24px;
   height: 50%;
-  overflow-y: auto;
+
   width: 500px;
   border-radius: 5px;
   box-shadow: 5px 5px 20px black;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .add-form form {
@@ -81,6 +84,11 @@ body {
   transform: scaleX(1);
 }
 
+.todo-list{
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
 .todo-list ol {
   list-style-type: none;
   margin: 0;
@@ -102,6 +110,11 @@ body {
 
 .todo-list ol li.cheked span {
   text-decoration: line-through;
+}
+
+.delete-checked-wrapper {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .textEmptyVisible {
