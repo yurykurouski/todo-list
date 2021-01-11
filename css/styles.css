@@ -99,7 +99,7 @@ body {
   display: flex;
 }
 
-.todo-list ol li span {
+.todo-list ol li span, input[type='text'] {
   justify-content: right;
 }
 
