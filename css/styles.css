@@ -38,22 +38,10 @@ body {
   border-bottom: solid #e0e0e0 1px;
   outline: none;
 }
-/* .add-form form ::placeholder {
-  line-height: 32px;
-  font-size: 16px;
-  color:#BDBDBD;
-  transition: 0.2s;
-}
-.add-form form :focus::placeholder{
-  top: -10px;
-  font-size: 10px;
-  line-height: 20px;
-  color:black;
-} */
 .form-label{
   position: absolute;
   pointer-events: none;
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 7px;
   transition: .3s;
 }
@@ -61,13 +49,18 @@ body {
 .add-form form:not(:focus):valid~.form-label {
   margin-top: -6px;
   font-size: 10px;
-  color: #0288d1;
+  color: grey;
 }
 .add-form button[type='submit'] {
   margin-left: 10px;
   background: none;
   outline: none;
   border-style: none;
+  transition: 0.4s;
+}
+
+.add-form button[type='submit']:hover{
+  transform: scale(1.15)
 }
 
 .highlight {
@@ -75,7 +68,7 @@ body {
   margin-top: 34px;
   width: 454px;
 
-  background-color: #0288d1;
+  background-color: black;
   height: 2px;
   transition: 0.2s;
   transform: scaleX(0);
@@ -84,11 +77,12 @@ body {
   transform: scaleX(1);
 }
 
-.todo-list{
+.todo-list {
   flex-grow: 1;
   overflow-y: auto;
   margin-bottom: 20px;
 }
+
 .todo-list ol {
   list-style-type: none;
   margin: 0;
@@ -97,24 +91,41 @@ body {
 
 .todo-list ol li {
   display: flex;
+  border-bottom: solid #e0e0e0 1px;
+  margin-bottom: 15px;
 }
 
-.todo-list ol li span, input[type='text'] {
-  justify-content: right;
+.todo-list ol li span,
+.todo-list ol li input[type="text"] {
+  flex-grow: 1;
 }
 
-.todo-list ol li .delete-btn {
+.todo-list ol li .smallTaskIcon {
   border: none;
-  background: black;
+  background: none;
+  outline: none;
 }
 
-.todo-list ol li.cheked span {
+.todo-list ol li.checked .todoText {
   text-decoration: line-through;
+}
+.todo-list ol li .todoText {
+  font-size: 18px;
 }
 
 .delete-checked-wrapper {
   display: flex;
   justify-content: flex-end;
+}
+.delete-checked-btn {
+  background: none;
+  outline: none;
+  border-style: none;
+  transition: 0.4s;
+}
+
+.delete-checked-btn:hover{
+  transform: scale(1.2);
 }
 
 .textEmptyVisible {

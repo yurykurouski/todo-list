@@ -1,20 +1,14 @@
 function editTask(event) {
   /* 
-    Находим Span текущего task
-    записываем его содердимое в переменную
-    создаем текстовый Input и вставляем его вместо Span
+    находим span текущего task
+    записываем его содержимое в переменную
+    создаем текстовый input и вставляем его вместо span
     задаем value инпута сохраненным значением span
-    после повторного нажатия на кнопку edit, сохраняем текущее значение инпута 
-    заменяем инпут на span  с новыфм значением
+    после повторного нажатия на кнопку edit, сохраняем текущее значение инпута
+    заменяем инпут на span с новым значением 
   */
-  const li = event.target.closest('li');
 
-  const {
-    parentNode: editButton
-  } = event.target;
-  // const {
-  //   parentNode: li
-  // } = editButton;
+  const li = event.target.closest('li');
 
   const span = li.querySelector('span');
 
@@ -27,11 +21,15 @@ function editTask(event) {
     input.setAttribute('value', text);
     input.setAttribute('type', 'text');
 
+    li.replaceChild(input, span);
+
     return;
   }
 
   const input = li.querySelector('input[type="text"]');
-  const { value: newText } = input;
+  const {
+    value: newText
+  } = input;
 
   const newSpan = document.createElement('span');
   newSpan.textContent = newText;

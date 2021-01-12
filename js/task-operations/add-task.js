@@ -1,9 +1,10 @@
-import checkTask from './checkTask.js';
-import deleteTask from './deleteTask.js';
+import checkTask from './check-task.js';
+import deleteTask from './delete-task.js';
 import editTask from './edit-task.js';
 
+
 const todoList = document.querySelector('.todo-list ol');
-const backgrTextEmpty = document.getElementById('textEmpty');
+// const backgrTextEmpty = document.getElementById('textEmpty');
 
 let tasks = [];
 
@@ -30,11 +31,13 @@ export default function addTask(event) { //* вешаем обрабытия с�
   const newToDo = document.createElement('li');
 
   todoList.appendChild(newToDo);
+
   newToDo.innerHTML = `
-  <input type='checkbox' id=chkBox${tasks.length - 1}><span>${todoText}</span> 
-  <button  id='editBtn${tasks.length - 1}'><i class='fas fa-edit'  class='edit-bth'> < /i> </button >
-  <button id='delBtn${tasks.length - 1}'><i class="fas fa-trash-alt" class='delete-btn'></i> </button>
+    <input type='checkbox' id=chkBox${tasks.length - 1}> <span class='todoText'>${todoText}</span> 
+    <button id='editBtn${tasks.length - 1}' class='smallTaskIcon'><span class="material-icons">create</span> </button>
+    <button id='delBtn${tasks.length - 1}' class='smallTaskIcon'><span class="material-icons">delete</span> </button>
   `;
+
 
   const checkBox = document.getElementById(`chkBox${tasks.length - 1}`);
   const editBtn = document.getElementById(`editBtn${tasks.length - 1}`);
