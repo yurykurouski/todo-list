@@ -1,3 +1,5 @@
+import checkTask from "./check-task.js";
+
 function editTask(event) {
   /* 
     находим span текущего task
@@ -9,17 +11,19 @@ function editTask(event) {
   */
 
   const li = event.target.closest('li');
+  const checkBoxTemp = li.querySelector('input')
+
 
   const span = li.querySelector('span');
 
   if (span) {
-    const {
-      textContent: text
-    } = span;
+    const { textContent: text } = span;
 
     const input = document.createElement('input');
     input.setAttribute('value', text);
     input.setAttribute('type', 'text');
+
+    checkBoxTemp.setAttribute('disabled', 'disabled')
 
     li.replaceChild(input, span);
 
@@ -27,12 +31,13 @@ function editTask(event) {
   }
 
   const input = li.querySelector('input[type="text"]');
-  const {
-    value: newText
-  } = input;
+  const { value: newText } = input;
 
   const newSpan = document.createElement('span');
+  newSpan.setAttribute('class', 'todoText');
   newSpan.textContent = newText;
+
+  checkBoxTemp.removeAttribute('disabled')
 
   li.replaceChild(newSpan, input);
 }
