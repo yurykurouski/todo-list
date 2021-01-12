@@ -2,6 +2,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -45,11 +46,17 @@ body {
   margin-top: 7px;
   transition: .3s;
 }
-.add-form input:focus~.form-label,
+/* .add-form input:focus~.form-label,
 .add-form form:not(:focus):valid~.form-label {
   margin-top: -6px;
   font-size: 10px;
   color: grey;
+} */
+.add-form input:valid~.form-label,
+.add-form input:focus~.form-label {
+    margin-top: -6px;
+    font-size: 10px;
+    color: grey;
 }
 .add-form button[type='submit'] {
   margin-left: 10px;

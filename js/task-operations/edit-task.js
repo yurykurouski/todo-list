@@ -13,7 +13,6 @@ function editTask(event) {
   const li = event.target.closest('li');
   const checkBoxTemp = li.querySelector('input')
 
-
   const span = li.querySelector('span');
 
   if (span) {
