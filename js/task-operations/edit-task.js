@@ -23,7 +23,9 @@ function editTask(event) {
     input.setAttribute('value', text);
     input.setAttribute('type', 'text');
 
-    checkBoxTemp.setAttribute('disabled', 'disabled')
+    checkBoxTemp.setAttribute('disabled', 'disabled');
+
+    event.target.setAttribute('class', 'fas fa-save')
 
     li.replaceChild(input, span);
 
@@ -38,6 +40,8 @@ function editTask(event) {
   newSpan.textContent = newText;
 
   checkBoxTemp.removeAttribute('disabled')
+
+  event.target.setAttribute('class', 'fas fa-edit')
 
   li.replaceChild(newSpan, input);
 }
