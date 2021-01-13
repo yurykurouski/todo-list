@@ -35,8 +35,8 @@ export default function addTask(event) { //* вешаем обрабытия с�
   newToDo.innerHTML = `
     <input type='checkbox' id='chkBox${tasks.length - 1}'>
     <span class='todoText'>${todoText}</span> 
-    <button id='editBtn${tasks.length - 1}' class='smallTaskIcon' title='Edit this task'><i class="fas fa-edit"></i> </button>
-    <button id='delBtn${tasks.length - 1}' class='smallTaskIcon smallDelBtn' title='Delete this task'><i class="fas fa-trash"></i> </button>
+    <i id='editBtn${tasks.length - 1}' class='fas fa-edit smallTaskIcon' title='Edit this task'></i>
+    <i id='delBtn${tasks.length - 1}' class='fas fa-trash smallTaskIcon smallDelBtn' title='Delete this task'></i>
   `;
 
   const checkBox = document.getElementById(`chkBox${tasks.length - 1}`);
