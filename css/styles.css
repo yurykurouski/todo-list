@@ -129,7 +129,7 @@ body {
   font-size: 18px;
 }
 
-.delete-checked-wrapper {
+.bottom-buttons {
   display: flex;
   justify-content: space-between;
   margin: -15px 0px -10px 0px;

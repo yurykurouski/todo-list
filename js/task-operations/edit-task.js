@@ -1,4 +1,4 @@
-import checkTask from "./check-task.js";
+// import checkTask from "./check-task.js";
 
 function editTask(event) {
   /* 
