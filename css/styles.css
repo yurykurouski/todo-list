@@ -56,18 +56,19 @@ body {
 .add-form input:focus~.form-label {
     margin-top: -6px;
     font-size: 10px;
-    color: grey;
+    color: #757575;
 }
 .add-form button[type='submit'] {
   margin-left: 10px;
   background: none;
   outline: none;
   border-style: none;
-  transition: 0.4s;
+  transition: 0.1s;
 }
 
 .add-form button[type='submit']:hover{
-  transform: scale(1.15)
+  transform: scale(1.1);
+  color: #303F9F;
 }
 
 .highlight {
@@ -107,10 +108,18 @@ body {
   flex-grow: 1;
 }
 
-.todo-list ol li .smallTaskIcon {
+.smallTaskIcon {
   border: none;
   background: none;
   outline: none;
+  transition: 0.1s;
+}
+
+.smallTaskIcon:hover {
+  color: #303F9F;
+}
+.smallDelBtn:hover {
+  color: #D32F2F;
 }
 
 .todo-list ol li.checked .todoText {
@@ -123,32 +132,41 @@ body {
 .delete-checked-wrapper {
   display: flex;
   justify-content: space-between;
+  margin: -15px 0px -10px 0px;
 }
 .delete-checked-btn {
   background: none;
   outline: none;
   border-style: none;
-  transition: 0.4s;
-  
+  transition: 0.1s;
 }
 .delete-checked-btn:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
+  color: #D32F2F;
 }
 .check-all-btn {
   background: none;
   outline: none;
   border-style: none;
-  transition: 0.4s;
+  transition: 0.1s;
 }
 .check-all-btn:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
+  color: #303F9F
 }
-
 
 .textEmptyVisible {
   user-select: none;
   font-size: 20px;
   font-weight: 400;
   color:#BDBDBD;
+}
+
+.input-for-edit{
+  flex-grow: 1;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  outline: none;
 }
 /*# sourceMappingURL=styles.css.map */

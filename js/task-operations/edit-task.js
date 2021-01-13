@@ -21,6 +21,7 @@ function editTask(event) {
     const input = document.createElement('input');
     input.setAttribute('value', text);
     input.setAttribute('type', 'text');
+    input.setAttribute('class', 'input-for-edit');
 
     checkBoxTemp.setAttribute('disabled', 'disabled');
 
