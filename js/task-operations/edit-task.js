@@ -1,5 +1,3 @@
-// import checkTask from "./check-task.js";
-
 function editTask(event) {
   /* 
     находим span текущего task
@@ -25,7 +23,7 @@ function editTask(event) {
 
     checkBoxTemp.setAttribute('disabled', 'disabled');
 
-    event.target.setAttribute('class', 'fas fa-save smallTaskIcon')
+    event.target.setAttribute('class', 'fas fa-save')
 
     li.replaceChild(input, span);
 
@@ -41,7 +39,7 @@ function editTask(event) {
 
   checkBoxTemp.removeAttribute('disabled')
 
-  event.target.setAttribute('class', 'fas fa-edit smallTaskIcon')
+  event.target.setAttribute('class', 'fas fa-edit')
 
   li.replaceChild(newSpan, input);
 }

@@ -29,7 +29,7 @@ body {
 
 .add-form form {
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .add-form input {
   flex-grow: 1;
@@ -46,12 +46,7 @@ body {
   margin-top: 7px;
   transition: .3s;
 }
-/* .add-form input:focus~.form-label,
-.add-form form:not(:focus):valid~.form-label {
-  margin-top: -6px;
-  font-size: 10px;
-  color: grey;
-} */
+
 .add-form input:valid~.form-label,
 .add-form input:focus~.form-label {
     margin-top: -6px;
@@ -88,13 +83,14 @@ body {
 .todo-list {
   flex-grow: 1;
   overflow-y: auto;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .todo-list ol {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  height: 18px;
 }
 
 .todo-list ol li {
@@ -108,17 +104,17 @@ body {
   flex-grow: 1;
 }
 
-.smallTaskIcon {
+.fas {
   border: none;
   background: none;
   outline: none;
   transition: 0.1s;
 }
 
-.smallTaskIcon:hover {
+.fas:hover {
   color: #303F9F;
 }
-.smallDelBtn:hover {
+.fa-trash:hover {
   color: #D32F2F;
 }
 
@@ -164,9 +160,12 @@ body {
 
 .input-for-edit{
   flex-grow: 1;
+  height: 18px;
   font-size: 18px;
   font-family: 'Roboto', sans-serif;
   border: none;
   outline: none;
+  border-bottom: solid black 2px;
+
 }
 /*# sourceMappingURL=styles.css.map */
