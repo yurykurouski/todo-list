@@ -122,18 +122,28 @@ body {
 
 .delete-checked-wrapper {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 .delete-checked-btn {
   background: none;
   outline: none;
   border-style: none;
   transition: 0.4s;
+  
 }
-
-.delete-checked-btn:hover{
+.delete-checked-btn:hover {
   transform: scale(1.2);
 }
+.check-all-btn {
+  background: none;
+  outline: none;
+  border-style: none;
+  transition: 0.4s;
+}
+.check-all-btn:hover {
+  transform: scale(1.2);
+}
+
 
 .textEmptyVisible {
   user-select: none;
