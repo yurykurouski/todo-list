@@ -25,7 +25,7 @@ function editTask(event) {
 
     checkBoxTemp.setAttribute('disabled', 'disabled');
 
-    event.target.setAttribute('class', 'fas fa-save')
+    event.target.setAttribute('class', 'fas fa-save smallTaskIcon')
 
     li.replaceChild(input, span);
 
@@ -41,7 +41,7 @@ function editTask(event) {
 
   checkBoxTemp.removeAttribute('disabled')
 
-  event.target.setAttribute('class', 'fas fa-edit')
+  event.target.setAttribute('class', 'fas fa-edit smallTaskIcon')
 
   li.replaceChild(newSpan, input);
 }
