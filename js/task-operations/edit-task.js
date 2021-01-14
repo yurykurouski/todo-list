@@ -1,5 +1,7 @@
-function submitTask (event) {
-  if (event.keyCode !== 13) {
+import {ENTER_KEY_CODE} from '../constants.js'
+
+function submitTask(event) {
+  if (event.keyCode !== ENTER_KEY_CODE) {
     return;
   }
 
