@@ -2,13 +2,12 @@ import checkTask from './check-task.js';
 import deleteTask from './delete-task.js';
 import editTask from './edit-task.js';
 
+import taskList from '../tasks.js';
 
 const todoList = document.querySelector('.todo-list ol');
 // const backgrTextEmpty = document.getElementById('textEmpty');
-
-let tasks = [];
-
-function generateId(tasks) {  // *получаем массив со всеми идентификаторами таска
+console.log(taskList)
+function generateId(tasks) { // *получаем массив со всеми идентификаторами таска
   const ids = tasks.map(task => {
     return task.id;
   });
@@ -20,6 +19,29 @@ function generateId(tasks) {  // *получаем массив со всеми 
   const maxId = Math.max(...ids);  // находим максимальный айди
 
   return maxId + 1;  //возвращаем норвый, который будет польше максимального на единицу
+}
+
+export function createTask(task) {
+  const newToDo = document.createElement('li');
+
+  newToDo.setAttribute('id', `${task.id}`);
+
+  todoList.appendChild(newToDo);
+
+  newToDo.innerHTML = `
+  <input type='checkbox' id='chkBox${task.id}'>
+  <span class='todoText'>${task.text}</span> 
+  <button id='editBtn${task.id}' class='fas fa-edit' ></button>
+  <button id='delBtn${task.id}' class='fas fa-trash' ></button>
+`;
+
+  const checkBox = document.getElementById(`chkBox${task.id}`);
+  const editBtn = document.getElementById(`editBtn${task.id}`);
+  const deleteButton = document.getElementById(`delBtn${task.id}`);
+
+  checkBox.addEventListener('change', checkTask);
+  deleteButton.addEventListener('click', deleteTask);
+  editBtn.addEventListener('click', editTask);
 }
 
 export default function addTask(event) { //* вешаем обрабытия сабмит на форму
@@ -36,31 +58,17 @@ export default function addTask(event) { //* вешаем обрабытия с�
   }
 
   const newTask = {
-    id: generateId(tasks),
+    id: generateId(taskList.tasks),
     text: todoText,
     checked: false
-  }
+  };
 
-  tasks = [...tasks, newTask]; // *здесь добавляю в массив задач задачу
+  taskList.add(newTask);
 
-  const newToDo = document.createElement('li');
-
-  todoList.appendChild(newToDo);
-
-  newToDo.innerHTML = `
-    <input type='checkbox' id='chkBox${newTask.id}'>
-    <span class='todoText'>${todoText}</span> 
-    <button id='editBtn${newTask.id}' class='fas fa-edit' ></button>
-    <button id='delBtn${newTask.id}' class='fas fa-trash' ></button>
-  `;
-
-  const checkBox = document.getElementById(`chkBox${newTask.id}`);
-  const editBtn = document.getElementById(`editBtn${newTask.id}`);
-  const deleteButton = document.getElementById(`delBtn${newTask.id}`);
-
-  checkBox.addEventListener('change', checkTask);
-  deleteButton.addEventListener('click', deleteTask);
-  editBtn.addEventListener('click', editTask);
+  createTask(newTask);
 
   event.target.reset(); // очищаем форму
+
+  localStorage.setItem('tasks', JSON.stringify(taskList.tasks));
 }
+
