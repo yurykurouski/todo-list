@@ -41,7 +41,7 @@ function editTask(event) {
     const { textContent: text } = span;
 
     const input = document.createElement('input');
-    input.setAttribute('value', text);
+    // input.setAttribute('value', text);
     input.setAttribute('type', 'text');
     input.setAttribute('class', 'input-for-edit');
 
@@ -52,6 +52,10 @@ function editTask(event) {
     event.target.setAttribute('class', 'fas fa-save') //* можно просто найти существую иконку и для нее поменять класс на класс иконки с дискетой
 
     li.replaceChild(input, span);
+
+    input.focus();  // вешаем фокус на инпут, но он становится в начало строки
+    input.value = '';  //удаляем значение инпута
+    input.value = text;  // а здесь возвращаем значение в инпут, что бы курсор был в конце
 
     return;
   }
