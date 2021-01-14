@@ -4,7 +4,7 @@ function deleteTask() { // * здесь можно ParentNode  в одну ст�
   const target = this.parentNode; // TODO здесь тоже сделай деструктуризацию как и в чекТаск
   const parent = target.parentNode;
 
-  const taskId = parseInt(parent.id);  //! тут что-то не то с айдиш, надо получить верный айди
+  const taskId = parseInt(target.id);  //! тут что-то не то с айдиш, надо получить верный айди
   taskList.delete(taskId);
     
   parent.removeChild(target);
