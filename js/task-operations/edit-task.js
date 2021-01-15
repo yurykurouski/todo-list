@@ -11,6 +11,9 @@ function submitTask(event) {
 
   const li = event.target.closest('li');
   const checkBoxTemp = li.querySelector('input');
+  const btn = li.querySelector('.fa-save');
+
+  btn.setAttribute('class', 'fas fa-edit');
 
   saveTask(li, checkBoxTemp)
 }

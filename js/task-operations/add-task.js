@@ -22,9 +22,14 @@ function generateId(tasks) { // *получаем массив со всеми �
 
 export function createTask(task) {
   const newToDo = document.createElement('li');
+  // * что бы новый таск вставлялся в начало списка
+  const tasks = JSON.parse(localStorage.getItem('tasks'))
+  if (tasks) {
+    const firstLi = todoList.querySelector('li');
 
-  todoList.appendChild(newToDo);
-
+    todoList.insertBefore(newToDo, firstLi);
+  } else todoList.appendChild(newToDo);
+    
   newToDo.innerHTML = `
   <input type='checkbox' id='chkBox${task.id}'>
   <span class='todoText'>${task.text}</span> 
