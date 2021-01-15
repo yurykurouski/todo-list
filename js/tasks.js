@@ -10,6 +10,10 @@ class TaskList {
   delete(id) {
     this.tasks = this.tasks.filter(task => task.id !== id);
   }
+
+  edit(id, value) {
+    this.tasks.find(task => task.id === id).text = value;
+  }
 }
 
 const tasks = JSON.parse(localStorage.getItem('tasks'));

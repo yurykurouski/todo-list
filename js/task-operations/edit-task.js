@@ -1,18 +1,28 @@
-import {ENTER_KEY_CODE} from '../constants.js'
+import {
+  ENTER_KEY_CODE
+} from '../constants.js'
+
+import taskList from '../tasks.js';
 
 function submitTask(event) {
   if (event.keyCode !== ENTER_KEY_CODE) {
     return;
   }
 
-    const li = event.target.closest('li');
-    const checkBoxTemp = li.querySelector('input')
+  const li = event.target.closest('li');
+  const checkBoxTemp = li.querySelector('input')
   saveTask(li, checkBoxTemp)
 }
 
 function saveTask(li, checkBoxTemp) {
   const input = li.querySelector('input[type="text"]');
-  const {  value: newText  } = input;
+  const taskId = parseInt(li.id); //? часть от дз
+  const {
+    value: newText
+  } = input;
+
+  
+  taskList.edit(taskId, newText) //? эта часть из дз
 
   const newSpan = document.createElement('span');
   newSpan.setAttribute('class', 'todoText');
@@ -20,9 +30,12 @@ function saveTask(li, checkBoxTemp) {
 
   checkBoxTemp.removeAttribute('disabled')
 
-  event.target.setAttribute('class', 'fas fa-edit')
+  event.target.setAttribute('class', 'fas fa-edit')  //! не меняется обратно иконка при нажатии на Enter
 
   li.replaceChild(newSpan, input);
+
+  localStorage.setItem('tasks', JSON.stringify(taskList.tasks));
+
 }
 
 function editTask(event) {
@@ -36,14 +49,15 @@ function editTask(event) {
   */
 
   const li = event.target.closest('li');
-  const checkBoxTemp = li.querySelector('input') 
+  const checkBoxTemp = li.querySelector('input')
   const span = li.querySelector('span');
 
   if (span) {
-    const { textContent: text } = span;
+    const {
+      textContent: text
+    } = span;
 
     const input = document.createElement('input');
-    // input.setAttribute('value', text);
     input.setAttribute('type', 'text');
     input.setAttribute('class', 'input-for-edit');
 
@@ -55,14 +69,14 @@ function editTask(event) {
 
     li.replaceChild(input, span);
 
-    input.focus();  // вешаем фокус на инпут, но он становится в начало строки
-    input.value = '';  //удаляем значение инпута
-    input.value = text;  // а здесь возвращаем значение в инпут, что бы курсор был в конце
+    input.focus(); // вешаем фокус на инпут, но он становится в начало строки
+    input.value = ''; //удаляем значение инпута
+    input.value = text; // а здесь возвращаем значение в инпут, что бы курсор был в конце
 
     return;
   }
 
-  saveTask(li, checkBoxTemp)
+  saveTask(li, checkBoxTemp);
 
 }
 

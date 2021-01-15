@@ -4,7 +4,6 @@ function checkAllTasks() {
 
   allTasks.forEach(task => task.setAttribute('class', 'checked'));
   allTasksCheckbox.forEach(checkbox => checkbox.checked = true);
-  console.log(allTasksCheckbox)
 }
 
 export default checkAllTasks;

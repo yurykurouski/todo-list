@@ -5,20 +5,19 @@ import editTask from './edit-task.js';
 import taskList from '../tasks.js';
 
 const todoList = document.querySelector('.todo-list ol');
-// const backgrTextEmpty = document.getElementById('textEmpty');
-console.log(taskList)
+
 function generateId(tasks) { // *получаем массив со всеми идентификаторами таска
   const ids = tasks.map(task => {
     return task.id;
   });
 
-  if (!ids.length) {  // если пустой массив начинаем нумерацию с единицы
+  if (!ids.length) { // если пустой массив начинаем нумерацию с единицы
     return 1;
   }
 
-  const maxId = Math.max(...ids);  // находим максимальный айди
+  const maxId = Math.max(...ids); // находим максимальный айди
 
-  return maxId + 1;  //возвращаем норвый, который будет польше максимального на единицу
+  return maxId + 1; //возвращаем норвый, который будет польше максимального на единицу
 }
 
 export function createTask(task) {
@@ -47,8 +46,6 @@ export function createTask(task) {
 export default function addTask(event) { //* вешаем обрабытия сабмит на форму
   event.preventDefault(); // сброс стандартного поведения отправки формы
 
-  // if (tasks) backgrTextEmpty.innerHTML = '';
-
   const formData = new FormData(event.target); // * Получаем все поля формы. FormData - стандар2тный класс от джса, структура данных
 
   const todoText = formData.get('text'); //* получаем текст из инпута
@@ -71,4 +68,3 @@ export default function addTask(event) { //* вешаем обрабытия с�
 
   localStorage.setItem('tasks', JSON.stringify(taskList.tasks));
 }
-
