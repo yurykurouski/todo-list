@@ -17,9 +17,11 @@ class TaskList {
 
   check(id, state) {
     this.tasks.find(task => task.id === id).checked = state;
-    
   }
 
+  deleteChecked() {
+    this.tasks = this.tasks.filter(task => !task.checked);
+  }
 
 }
 
