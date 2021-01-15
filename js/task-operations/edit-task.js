@@ -10,7 +10,8 @@ function submitTask(event) {
   }
 
   const li = event.target.closest('li');
-  const checkBoxTemp = li.querySelector('input')
+  const checkBoxTemp = li.querySelector('input');
+
   saveTask(li, checkBoxTemp)
 }
 
@@ -21,7 +22,6 @@ function saveTask(li, checkBoxTemp) {
     value: newText
   } = input;
 
-  
   taskList.edit(taskId, newText) //? эта часть из дз
 
   const newSpan = document.createElement('span');

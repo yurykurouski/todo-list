@@ -23,8 +23,6 @@ function generateId(tasks) { // *получаем массив со всеми �
 export function createTask(task) {
   const newToDo = document.createElement('li');
 
-  newToDo.setAttribute('id', `${task.id}`);
-
   todoList.appendChild(newToDo);
 
   newToDo.innerHTML = `
@@ -37,6 +35,12 @@ export function createTask(task) {
   const checkBox = document.getElementById(`chkBox${task.id}`);
   const editBtn = document.getElementById(`editBtn${task.id}`);
   const deleteButton = document.getElementById(`delBtn${task.id}`);
+
+  newToDo.setAttribute('id', `${task.id}`);
+  if (task.checked) {
+    newToDo.setAttribute('class', 'checked');
+    checkBox.setAttribute('checked', true);
+  }
 
   checkBox.addEventListener('change', checkTask);
   deleteButton.addEventListener('click', deleteTask);

@@ -14,6 +14,13 @@ class TaskList {
   edit(id, value) {
     this.tasks.find(task => task.id === id).text = value;
   }
+
+  check(id, state) {
+    this.tasks.find(task => task.id === id).checked = state;
+    
+  }
+
+
 }
 
 const tasks = JSON.parse(localStorage.getItem('tasks'));
