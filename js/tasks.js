@@ -23,6 +23,10 @@ class TaskList {
     this.tasks = this.tasks.filter(task => !task.checked);
   }
 
+  checkAllTasksLocalStorage() {
+    this.tasks.forEach(task => task.checked = true);
+  }
+
 }
 
 const tasks = JSON.parse(localStorage.getItem('tasks'));
