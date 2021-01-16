@@ -37,6 +37,7 @@ body {
 .add-form {
   grid-area: i;
   margin: 10px 10px 0px 10px;
+  max-width: 500px;
 }
 
 .add-form form {
@@ -49,22 +50,31 @@ body {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
   0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-  background-color: #1976D2;
-  border-radius: 3px 3px 0px 0px;
+  background-color: #3d5afe;
+  /* #1976D2 */
+  border-radius: 16px;
   height: 32px;
   font-size: 20px;
   border: none;
   outline: none;
   width: 100%;
-  padding-left: 5px;
+  padding-left: 15px;
   padding-right: 5px;
 }
-
+.add-form input:hover{
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+  0 10px 10px rgba(0, 0, 0, 0.22);
+}
 .add-form input:valid,
-.add-form input:hover,
 .add-form input:focus {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
   0 10px 10px rgba(0, 0, 0, 0.22);
+  background-color: #093170;
+  color: grey;
+}
+.add-form input:focus {
+  background-color: #2a3eb1;
+  color: var(--f-color);
 }
 
 .form-label {
@@ -73,7 +83,7 @@ body {
   pointer-events: none;
   font-size: 18px;
   line-height: 34px;
-  margin-left: 5px;
+  margin-left: 15px;
   transition: .3s;
 }
 
@@ -81,27 +91,10 @@ body {
 .add-form input:focus~.form-label {
   margin-top: -21px;
   font-size: 10px;
-  color: whitesmoke;
+  color: grey;
 }
 .add-form input:focus~.form-label{
-  color: var(--i-color);
-}
-
-.highlight {
-  /* display: inline-block; */
-  position: absolute;
-  margin-top: 32px;
-  width: 100%;
-
-
-  background-color: black;
-  height: 2px;
-  transition: 0.2s;
-  transform: scaleX(0);
-}
-
-.add-form input:focus~.highlight {
-  transform: scaleX(1);
+  color: whitesmoke;
 }
 
 .todo-list {
@@ -113,11 +106,13 @@ body {
   grid-area: b;
   margin: 10px;
   padding: 0px 5px 5px 5px;
+  overflow-y: auto;
 }
 
 .todo-list ol {
   display: grid;
   list-style-type: none;
+  max-width: 470px;
   margin: 0px;
   padding: 0px;
 }
@@ -135,7 +130,6 @@ body {
 
 .todo-list ol li:hover {
   background: #5f5f5f;
-
 }
 .todo-list ol li input{
   position: relative;
@@ -145,7 +139,12 @@ body {
 }
 .todo-list ol li span {
   display: inline-block;
-	line-height: 30px;
+  line-height: 30px;
+  padding-left: 5px;
+}
+.todo-list ol li.checked .todoText {
+  text-decoration: line-through black;
+  color: grey;
 }
 .todo-list ol li .input-for-edit {
   display: inline-block;
@@ -157,6 +156,7 @@ body {
   background: #5f5f5f;
   border-radius: 3px;
   margin: 0px;
+  padding-left: 5px;
   top: auto;
   line-height: 30px;
   color: var(--f-color);
@@ -179,7 +179,6 @@ body {
 
 .bottom-buttons {
   grid-area: f;
-
   margin: 0px 10px 0px 10px;
 }
 
@@ -191,6 +190,16 @@ body {
   margin: 0px 5px 0px 5px;
   padding: 0px;
   transition: 0.1s;
+}
+
+.delbtn:hover {
+  color: #D32F2F;
+}
+.editbtn:hover {
+  color: #f57f17;
+}
+.savebtn:hover {
+  color: #1b5e20;
 }
 
 .delete-checked-btn:hover {
