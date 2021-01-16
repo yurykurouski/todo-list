@@ -1,8 +1,16 @@
+:root{
+  --f-color:#F5F5F5;
+  --i-color: #26c6da;
+}
+
+
 html,
 body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  color: var(--f-color);
 }
 
 body {
@@ -36,19 +44,20 @@ body {
   margin-bottom: 10px;
 }
 
-/* сверху более менее */
 .add-form input {
   flex-grow: 1;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
   0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
   background-color: #1976D2;
-  border-radius: 3px;
+  border-radius: 3px 3px 0px 0px;
   height: 32px;
   font-size: 20px;
   border: none;
   outline: none;
   width: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .add-form input:valid,
@@ -58,24 +67,44 @@ body {
   0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-/* .form-label {
+.form-label {
   position: absolute;
+  height: 34px;
   pointer-events: none;
   font-size: 18px;
-  margin-top: 7px;
+  line-height: 34px;
+  margin-left: 5px;
   transition: .3s;
 }
 
 .add-form input:valid~.form-label,
 .add-form input:focus~.form-label {
-  margin-top: -6px;
+  margin-top: -21px;
   font-size: 10px;
-  color: #757575;
-} */
+  color: whitesmoke;
+}
+.add-form input:focus~.form-label{
+  color: var(--i-color);
+}
 
-/* снизу более менее */
+.highlight {
+  /* display: inline-block; */
+  position: absolute;
+  margin-top: 32px;
+  width: 100%;
+
+
+  background-color: black;
+  height: 2px;
+  transition: 0.2s;
+  transform: scaleX(0);
+}
+
+.add-form input:focus~.highlight {
+  transform: scaleX(1);
+}
+
 .todo-list {
-  /* display: grid; */
   background-color: #424242;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14),
     0 3px 4px 0 rgba(0, 0, 0, 0.12),
@@ -94,6 +123,9 @@ body {
 }
 
 .todo-list ol li {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  height: 30px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
   0 3px 6px rgba(0, 0, 0, 0.23);
   transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
@@ -103,9 +135,31 @@ body {
 
 .todo-list ol li:hover {
   background: #5f5f5f;
-/* 
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-    0 10px 10px rgba(0, 0, 0, 0.22); */
+
+}
+.todo-list ol li input{
+  position: relative;
+  margin: 5px;
+  padding: 0px;
+  top: 4px;
+}
+.todo-list ol li span {
+  display: inline-block;
+	line-height: 30px;
+}
+.todo-list ol li .input-for-edit {
+  display: inline-block;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  background: none;
+  outline: none;
+  border-style: none;
+  background: #5f5f5f;
+  border-radius: 3px;
+  margin: 0px;
+  top: auto;
+  line-height: 30px;
+  color: var(--f-color);
 }
 
 .add-form button[type='submit'] {
@@ -123,7 +177,6 @@ body {
   color: #ffb851;
 }
 
-
 .bottom-buttons {
   grid-area: f;
 
@@ -131,10 +184,12 @@ body {
 }
 
 .material-icons {
-  color: #26c6da;
+  color: var(--i-color);
   background: none;
   outline: none;
   border-style: none;
+  margin: 0px 5px 0px 5px;
+  padding: 0px;
   transition: 0.1s;
 }
 
