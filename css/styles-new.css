@@ -11,9 +11,9 @@ body {
   justify-content: center;
 }
 
-.container{
+.container {
   display: grid;
-  grid-template-areas: 'i' 'b' 'f';
+  grid-template-areas: 'i''b''f';
   grid-template-rows: 45px 1fr 35px;
   background-color: #333333;
   border-radius: 5px;
@@ -25,35 +25,40 @@ body {
   margin-top: 20px;
   padding: 0;
 }
+
 .add-form {
-  display: grid;
-  /* background-color: #424242; */
-  /* box-shadow: 0px 5px 5px #212121; */
-  /* border-radius: 3px; */
   grid-area: i;
   margin: 10px 10px 0px 10px;
-
 }
+
+.add-form form {
+  display: flex;
+  margin-bottom: 10px;
+}
+
 /* сверху более менее */
 .add-form input {
   flex-grow: 1;
-  box-shadow: 0px 5px 5px #212121;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+  0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
   background-color: #1976D2;
   border-radius: 3px;
   height: 32px;
   font-size: 20px;
   border: none;
-  /* border-bottom: solid #e0e0e0 1px; */
   outline: none;
+  width: 100%;
 }
 
 .add-form input:valid,
 .add-form input:hover,
-.add-form input:focus{
-background-color: #2196F3;
+.add-form input:focus {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+  0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-.form-label {
+/* .form-label {
   position: absolute;
   pointer-events: none;
   font-size: 18px;
@@ -66,30 +71,51 @@ background-color: #2196F3;
   margin-top: -6px;
   font-size: 10px;
   color: #757575;
-}
+} */
 
 /* снизу более менее */
 .todo-list {
-  display: grid;
+  /* display: grid; */
   background-color: #424242;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14),
-  0 3px 4px 0 rgba(0, 0, 0, 0.12),
-  0 1px 5px 0 rgba(0, 0, 0, 0.20);
+    0 3px 4px 0 rgba(0, 0, 0, 0.12),
+    0 1px 5px 0 rgba(0, 0, 0, 0.20);
   border-radius: 3px;
   grid-area: b;
   margin: 10px;
-}
-.todo-list ol {
-  list-style-type: none;
+  padding: 0px 5px 5px 5px;
 }
 
+.todo-list ol {
+  display: grid;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.todo-list ol li {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+  0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+  margin-top: 5px;
+  border-radius: 3px;
+}
+
+.todo-list ol li:hover {
+  background: #5f5f5f;
+/* 
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22); */
+}
 
 .add-form button[type='submit'] {
   color: #26c6da;
+
   background: none;
   outline: none;
   border-style: none;
   transition: 0.1s;
+  padding: 0px 10px 0px 10px;
 }
 
 .add-form button[type='submit']:hover {
@@ -97,13 +123,14 @@ background-color: #2196F3;
   color: #ffb851;
 }
 
+
 .bottom-buttons {
   grid-area: f;
 
   margin: 0px 10px 0px 10px;
 }
 
-.delete-checked-btn {
+.material-icons {
   color: #26c6da;
   background: none;
   outline: none;
@@ -116,20 +143,12 @@ background-color: #2196F3;
   color: #D32F2F;
 }
 
-.check-all-btn {
-  color: #26c6da;
-  background: none;
-  outline: none;
-  border-style: none;
-  transition: 0.1s;
-}
-
 .check-all-btn:hover {
   transform: scale(1.1);
   color: #ffb851
 }
 
-/*# sourceMappingURL=styles.css.map */  
+/*# sourceMappingURL=styles.css.map */
 /* html,
 body {
   margin: 0;
