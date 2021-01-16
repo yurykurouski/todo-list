@@ -11,9 +11,10 @@ function submitTask(event) {
 
   const li = event.target.closest('li');
   const checkBoxTemp = li.querySelector('input');
-  const btn = li.querySelector('.fa-save');
+  const btn = li.querySelector('.savebtn');
 
-  btn.setAttribute('class', 'fas fa-edit');
+  btn.setAttribute('class', 'material-icons editbtn');
+  btn.textContent = 'create';
 
   saveTask(li, checkBoxTemp)
 }
@@ -33,7 +34,8 @@ function saveTask(li, checkBoxTemp) {
 
   checkBoxTemp.removeAttribute('disabled')
 
-  event.target.setAttribute('class', 'fas fa-edit')  //! не меняется обратно иконка при нажатии на Enter
+  event.target.setAttribute('class', 'material-icons editbtn') //! не меняется обратно иконка при нажатии на Enter
+  event.target.textContent = 'create';
 
   li.replaceChild(newSpan, input);
 
@@ -68,7 +70,8 @@ function editTask(event) {
 
     checkBoxTemp.setAttribute('disabled', 'disabled');
 
-    event.target.setAttribute('class', 'fas fa-save') //* можно просто найти существую иконку и для нее поменять класс на класс иконки с дискетой
+    event.target.setAttribute('class', 'material-icons savebtn') //* можно просто найти существую иконку и для нее поменять класс на класс иконки с дискетой
+    event.target.textContent = 'save'
 
     li.replaceChild(input, span);
 

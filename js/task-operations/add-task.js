@@ -33,8 +33,8 @@ export function createTask(task) {
   newToDo.innerHTML = `
   <input type='checkbox' id='chkBox${task.id}'>
   <span class='todoText'>${task.text}</span> 
-  <button id='editBtn${task.id}' class='fas fa-edit' ></button>
-  <button id='delBtn${task.id}' class='fas fa-trash' ></button>
+  <button id='editBtn${task.id}' class='material-icons editbtn' >create</button>
+  <button id='delBtn${task.id}' class='material-icons delbtn' >delete</button>
 `;
 
   const checkBox = document.getElementById(`chkBox${task.id}`);
