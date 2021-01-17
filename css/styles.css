@@ -38,7 +38,6 @@ body {
 .add-form {
   grid-area: i;
   margin: 10px 10px 0px 10px;
-  max-width: 500px;
 }
 
 .add-form form {
@@ -111,7 +110,6 @@ body {
 .todo-list ol {
   display: grid;
   list-style-type: none;
-  max-width: 470px;
   margin: 0px;
   padding: 0px;
 }
