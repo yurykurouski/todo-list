@@ -210,12 +210,10 @@ body {
 .savebtn:hover {
   color:#76ff03;
 }
-
 .delete-checked-btn:hover {
   transform: scale(1.1);
   color: #D32F2F;
 }
-
 .check-all-btn:hover {
   transform: scale(1.1);
   color: #ffb851

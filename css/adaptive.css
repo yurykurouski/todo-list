@@ -1,8 +1,36 @@
 @media only screen and (max-width: 499px) {
   .container {
     width: 100vw;
-    height:100vh;
+    height: calc(var(--vh, 1vh) * 100);
 
     margin: 0px;
+  }
+  .material-icons:hover{
+    color: #26c6da;
+  }
+  
+  .add-form button[type='submit']:hover {
+    color: #26c6da;
+  }
+  .add-form button[type='submit']:active {
+    color: #ffb851;
+  }
+
+  .delbtn:active {
+    color: #D32F2F;
+  }
+  .editbtn:active {
+    color: #f57f17;
+  }
+  .savebtn:active {
+    color: #76ff03;
+  }
+  .delete-checked-btn:active {
+    transform: scale(1.1);
+    color: #D32F2F;
+  }
+  .check-all-btn:active {
+    transform: scale(1.1);
+    color: #ffb851
   }
 }
