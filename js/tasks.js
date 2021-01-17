@@ -10,6 +10,23 @@ class TaskList {
   delete(id) {
     this.tasks = this.tasks.filter(task => task.id !== id);
   }
+
+  edit(id, value) {
+    this.tasks.find(task => task.id === id).text = value;
+  }
+
+  check(id, state) {
+    this.tasks.find(task => task.id === id).checked = state;
+  }
+
+  deleteChecked() {
+    this.tasks = this.tasks.filter(task => !task.checked);
+  }
+
+  checkAllTasksLocalStorage() {
+    this.tasks.forEach(task => task.checked = true);
+  }
+
 }
 
 const tasks = JSON.parse(localStorage.getItem('tasks'));

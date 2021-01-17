@@ -1,15 +1,17 @@
 import taskList from '../tasks.js';
 
-function deleteTask() { // * здесь можно ParentNode  в одну строку записать, два нода один за одним. Или через .slosest()(тоже в одну строку)
-  const target = this.parentNode; // TODO здесь тоже сделай деструктуризацию как и в чекТаск
-  const parent = target.parentNode;
+function deleteTask(event) { // * здесь можно ParentNode  в одну строку записать, два нода один за одним. Или через .slosest()(тоже в одну строку)
+  const {
+    parentNode
+  } = event.target.closest('.material-icons');
 
-  const taskId = parseInt(target.id);  //! тут что-то не то с айдиш, надо получить верный айди
+  const taskId = parseInt(parentNode.id);
+
   taskList.delete(taskId);
-    
-  parent.removeChild(target);
 
-  localStorage.setItem('tasks', JSON.stringify(taskList.tasks));  //! не работает из-за йди
+  parentNode.remove()
+
+  localStorage.setItem('tasks', JSON.stringify(taskList.tasks));
 }
 
 export default deleteTask;

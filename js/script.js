@@ -19,5 +19,3 @@ checkAllTasksBtn.addEventListener('click', checkAllTasks);
 taskList.tasks.forEach((task) => {
   createTask(task);
 });
-
-// ! ДЗ дописать классу методы не ЭДИТ, ЧЕК И ДЕЛИТ ЧЕК и что бы все работало.

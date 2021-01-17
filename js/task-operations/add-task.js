@@ -5,39 +5,47 @@ import editTask from './edit-task.js';
 import taskList from '../tasks.js';
 
 const todoList = document.querySelector('.todo-list ol');
-// const backgrTextEmpty = document.getElementById('textEmpty');
-console.log(taskList)
+
 function generateId(tasks) { // *получаем массив со всеми идентификаторами таска
   const ids = tasks.map(task => {
     return task.id;
   });
 
-  if (!ids.length) {  // если пустой массив начинаем нумерацию с единицы
+  if (!ids.length) { // если пустой массив начинаем нумерацию с единицы
     return 1;
   }
 
-  const maxId = Math.max(...ids);  // находим максимальный айди
+  const maxId = Math.max(...ids); // находим максимальный айди
 
-  return maxId + 1;  //возвращаем норвый, который будет польше максимального на единицу
+  return maxId + 1; //возвращаем норвый, который будет польше максимального на единицу
 }
 
 export function createTask(task) {
   const newToDo = document.createElement('li');
+  // * что бы новый таск вставлялся в начало списка
+  const tasks = JSON.parse(localStorage.getItem('tasks'))
+  if (tasks) {
+    const firstLi = todoList.querySelector('li');
 
-  newToDo.setAttribute('id', `${task.id}`);
-
-  todoList.appendChild(newToDo);
-
+    todoList.insertBefore(newToDo, firstLi);
+  } else todoList.appendChild(newToDo);
+    
   newToDo.innerHTML = `
   <input type='checkbox' id='chkBox${task.id}'>
   <span class='todoText'>${task.text}</span> 
-  <button id='editBtn${task.id}' class='fas fa-edit' ></button>
-  <button id='delBtn${task.id}' class='fas fa-trash' ></button>
+  <button id='editBtn${task.id}' class='material-icons editbtn' >create</button>
+  <button id='delBtn${task.id}' class='material-icons delbtn' >delete</button>
 `;
 
   const checkBox = document.getElementById(`chkBox${task.id}`);
   const editBtn = document.getElementById(`editBtn${task.id}`);
   const deleteButton = document.getElementById(`delBtn${task.id}`);
+
+  newToDo.setAttribute('id', `${task.id}`);
+  if (task.checked) {
+    newToDo.setAttribute('class', 'checked');
+    checkBox.setAttribute('checked', true);
+  }
 
   checkBox.addEventListener('change', checkTask);
   deleteButton.addEventListener('click', deleteTask);
@@ -46,8 +54,6 @@ export function createTask(task) {
 
 export default function addTask(event) { //* вешаем обрабытия сабмит на форму
   event.preventDefault(); // сброс стандартного поведения отправки формы
-
-  // if (tasks) backgrTextEmpty.innerHTML = '';
 
   const formData = new FormData(event.target); // * Получаем все поля формы. FormData - стандар2тный класс от джса, структура данных
 
@@ -71,4 +77,3 @@ export default function addTask(event) { //* вешаем обрабытия с�
 
   localStorage.setItem('tasks', JSON.stringify(taskList.tasks));
 }
-
