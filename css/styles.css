@@ -142,13 +142,15 @@ body {
   padding-left: 5px;
 }
 .todo-list ol li.checked .todoText {
-  text-decoration: line-through black;
+  text-decoration: line-through #212121;
   color: grey;
 }
 .todo-list ol li .input-for-edit {
   display: inline-block;
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
+
+
   background: none;
   outline: none;
   border-style: none;
@@ -159,6 +161,13 @@ body {
   top: auto;
   line-height: 30px;
   color: var(--f-color);
+    border-radius: 15px;
+  transition: 0.2s;
+}
+.todo-list ol li .input-for-edit:focus{
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+  0 3px 6px rgba(0, 0, 0, 0.23);
+  border: var(--i-color);
 }
 
 .add-form button[type='submit'] {
@@ -198,7 +207,7 @@ body {
   color: #f57f17;
 }
 .savebtn:hover {
-  color: #1b5e20;
+  color:#76ff03;
 }
 
 .delete-checked-btn:hover {
