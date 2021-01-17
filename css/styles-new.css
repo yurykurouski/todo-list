@@ -3,7 +3,6 @@
   --i-color: #26c6da;
 }
 
-
 html,
 body {
   margin: 0;
@@ -25,7 +24,8 @@ body {
   grid-template-rows: 45px 1fr 35px;
   background-color: #333333;
   border-radius: 5px;
-  box-shadow: 5px 5px 20px black;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+  0 10px 10px rgba(0, 0, 0, 0.22);
 
   width: 500px;
   height: 600px;
@@ -51,7 +51,6 @@ body {
   0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
   background-color: #3d5afe;
-  /* #1976D2 */
   border-radius: 16px;
   height: 32px;
   font-size: 20px;
@@ -86,7 +85,6 @@ body {
   margin-left: 15px;
   transition: .3s;
 }
-
 .add-form input:valid~.form-label,
 .add-form input:focus~.form-label {
   margin-top: -21px;
@@ -131,6 +129,7 @@ body {
 .todo-list ol li:hover {
   background: #5f5f5f;
 }
+
 .todo-list ol li input{
   position: relative;
   margin: 5px;
