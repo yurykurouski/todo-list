@@ -22,12 +22,13 @@ body {
   display: grid;
   grid-template-areas: 'i''b''f';
   grid-template-rows: 45px 1fr 35px;
+  grid-template-columns: minmax(300px, 500px);
   background-color: #333333;
   border-radius: 5px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
   0 10px 10px rgba(0, 0, 0, 0.22);
 
-  width: 500px;
+  /* width: minmax(300px, 500px); */
   height: 600px;
   position: relative;
   margin-top: 20px;
