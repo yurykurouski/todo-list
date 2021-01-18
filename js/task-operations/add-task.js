@@ -1,6 +1,7 @@
 import checkTask from './check-task.js';
 import deleteTask from './delete-task.js';
 import editTask from './edit-task.js';
+import storageService from '../storage-service.js'
 
 import taskList from '../tasks.js';
 
@@ -23,7 +24,7 @@ function generateId(tasks) { // *получаем массив со всеми �
 export function createTask(task) {
   const newToDo = document.createElement('li');
   // * что бы новый таск вставлялся в начало списка
-  const tasks = JSON.parse(localStorage.getItem('tasks'))
+  const tasks = JSON.parse(storageService.get('tasks'))
   if (tasks) {
     const firstLi = todoList.querySelector('li');
 
@@ -44,7 +45,8 @@ export function createTask(task) {
   newToDo.setAttribute('id', `${task.id}`);
   if (task.checked) {
     newToDo.setAttribute('class', 'checked');
-    checkBox.setAttribute('checked', true);
+    // checkBox.setAttribute('checked', true);
+    checkBox.checked = 'checked';
   }
 
   checkBox.addEventListener('change', checkTask);
@@ -55,7 +57,7 @@ export function createTask(task) {
 export default function addTask(event) { //* вешаем обрабытия сабмит на форму
   event.preventDefault(); // сброс стандартного поведения отправки формы
 
-  const formData = new FormData(event.target); // * Получаем все поля формы. FormData - стандар2тный класс от джса, структура данных
+  const formData = new FormData(event.target); // * Получаем все поля формы. FormData - стандартный класс от джса, структура данных
 
   const todoText = formData.get('text'); //* получаем текст из инпута
 
@@ -75,5 +77,5 @@ export default function addTask(event) { //* вешаем обрабытия с�
 
   event.target.reset(); // очищаем форму
 
-  localStorage.setItem('tasks', JSON.stringify(taskList.tasks));
+  storageService.set('tasks', JSON.stringify(taskList.tasks));
 }
