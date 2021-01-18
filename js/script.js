@@ -1,6 +1,5 @@
 import listsTemplate from './templates/pages/lists/index.js';
 import {generateId} from './utils.js';
-import listsTemplate from './templates/pages/lists/index.js'
 import listsList from './lists-list.js';
 
 const currentUrl = window.location.pathname;
