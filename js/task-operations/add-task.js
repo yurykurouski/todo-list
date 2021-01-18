@@ -2,24 +2,11 @@ import checkTask from './check-task.js';
 import deleteTask from './delete-task.js';
 import editTask from './edit-task.js';
 import storageService from '../storage-service.js'
-
+import { generateId } from '../utils.js
+'
 import taskList from '../tasks.js';
 
 const todoList = document.querySelector('.todo-list ol');
-
-function generateId(tasks) { // *получаем массив со всеми идентификаторами таска
-  const ids = tasks.map(task => {
-    return task.id;
-  });
-
-  if (!ids.length) { // если пустой массив начинаем нумерацию с единицы
-    return 1;
-  }
-
-  const maxId = Math.max(...ids); // находим максимальный айди
-
-  return maxId + 1; //возвращаем норвый, который будет польше максимального на единицу
-}
 
 export function createTask(task) {
   const newToDo = document.createElement('li');

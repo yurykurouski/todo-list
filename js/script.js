@@ -1,31 +1,32 @@
-import taskList from './tasks.js'
+import listsTemplate from './templates/pages/lists/index.js';
+import {generateId} from './utils.js';
+import listsTemplate from './templates/pages/lists/index.js'
+import listsList from './lists-list.js';
 
-import addTask, { createTask } from './task-operations/add-task.js';
-import deleteCheckedTasks from './task-operations/delete-checked-tasks.js';
-import checkAllTasks from './task-operations/check-all-tasks.js';
-/* import checkTask from './task-operations/check-task.js';
-import deleteTask from './task-operations/delete-task.js';
-import editTask from './task-operations/edit-task.js';
- */
-const addForm = document.querySelector('.add-form > form'); // находим форму добавления
-const addFormMobile = document.querySelector('.bottom-buttons .add-form > form'); // находим форму добавления
-const deleteCheckedBtn = document.querySelector('.delete-checked-btn');
-const checkAllTasksBtn = document.querySelector('.check-all-btn');
+const currentUrl = window.location.pathname;
 
-addForm.addEventListener('submit', addTask);
-addFormMobile.addEventListener('submit', addTask);
-deleteCheckedBtn.addEventListener('click', deleteCheckedTasks);
-checkAllTasksBtn.addEventListener('click', checkAllTasks);
+const rootDiv = document.querySelector('.container');
 
-taskList.tasks.forEach((task) => {
-  createTask(task);
-});
+if (currentUrl === '/') {
+  rootDiv.innerHTML = listsTemplate;
 
-//* блок под мобилу
-let vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty('--vh', `${vh}px`);
+  const addListForm = document.querySelector('.add-form > form');
 
-window.addEventListener('resize', () => {
-  let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-});
+  addListForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+
+    const listName = formData.get('name');
+
+    const newList = {
+      id: generateId(listsList),
+      name: listName
+    };
+
+    listsList.add(newList)
+  })
+}
+
+Переписать что бы в индекс.дж список генерился из локал сторадж и что бы работало добавление.
+Дописать функционал добавления в класс.
