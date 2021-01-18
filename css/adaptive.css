@@ -1,6 +1,6 @@
 @media only screen and (max-width: 499px) {
   .container {
-    grid-template-rows: 0px 1fr 35px;
+    grid-template-rows: 0px 1fr 45px;
     width: 100vw;
     height: calc(var(--vh, 1vh) * 100);
 
@@ -9,14 +9,17 @@
 
   .container .add-form {
     display: none;
-    height: 1px;
   }
 
   .bottom-buttons .add-form {
     display: initial;
-    grid-area: f;
     flex-grow: 1;
-    margin: 0 0 0 10px;
+    margin: 0 0 0 5px;
+    height: 100%;
+  }
+
+  .bottom-buttons .add-form form input{
+    margin-bottom: 10px;
   }
 
   .add-form form button {
@@ -35,6 +38,9 @@
     display: flex;
   }
 
+  .material-icons {
+    font-size: 26px !important;
+  }
   .material-icons:hover {
     color: #26c6da;
   }
@@ -59,11 +65,21 @@
     color: #76ff03;
   }
 
+  .delete-checked-btn {
+    font-size: 30px !important;
+    margin-bottom: 10px;
+    margin-left: 10px;
+  }
   .delete-checked-btn:active {
     transform: scale(1.1);
     color: #D32F2F;
   }
 
+  .check-all-btn{
+    font-size: 30px !important;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
   .check-all-btn:active {
     transform: scale(1.1);
     color: #ffb851
