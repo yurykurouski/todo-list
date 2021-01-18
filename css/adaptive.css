@@ -6,6 +6,17 @@
     margin: 0px;
   }
 
+  .container add-form {
+    display: none;
+  }
+  .bottom-buttons .add-form {
+    display: initial;
+    grid-area: f;
+  }
+  .add-form form button {
+    display: none;
+  }
+
   .todo-list ol li:hover {
     background: #424242;
   }

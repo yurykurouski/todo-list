@@ -34,6 +34,9 @@ body {
   margin-top: 20px;
   padding: 0;
 }
+ .bottom-buttons .add-form{
+   display: none;
+ }
 
 .add-form {
   grid-area: i;
