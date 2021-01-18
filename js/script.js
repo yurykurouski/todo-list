@@ -3,10 +3,7 @@ import taskList from './tasks.js'
 import addTask, { createTask } from './task-operations/add-task.js';
 import deleteCheckedTasks from './task-operations/delete-checked-tasks.js';
 import checkAllTasks from './task-operations/check-all-tasks.js';
-/* import checkTask from './task-operations/check-task.js';
-import deleteTask from './task-operations/delete-task.js';
-import editTask from './task-operations/edit-task.js';
- */
+
 const addForm = document.querySelector('.add-form > form'); // находим форму добавления
 const addFormMobile = document.querySelector('.bottom-buttons .add-form > form'); // находим форму добавления
 const deleteCheckedBtn = document.querySelector('.delete-checked-btn');

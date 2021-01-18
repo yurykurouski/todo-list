@@ -3,6 +3,11 @@ import {
 } from '../constants.js'
 
 import taskList from '../tasks.js';
+import {
+  getTaskId
+} from '../utils.js';
+import storageService from '../storage-service.js'
+
 
 function submitTask(event) {
   if (event.keyCode !== ENTER_KEY_CODE) {
@@ -21,25 +26,25 @@ function submitTask(event) {
 
 function saveTask(li, checkBoxTemp) {
   const input = li.querySelector('input[type="text"]');
-  const taskId = parseInt(li.id); //? часть от дз
+  const taskId =getTaskId(li)
   const {
     value: newText
   } = input;
 
-  taskList.edit(taskId, newText) //? эта часть из дз
+  taskList.edit(taskId, newText);
 
   const newSpan = document.createElement('span');
   newSpan.setAttribute('class', 'todoText');
   newSpan.textContent = newText;
 
-  checkBoxTemp.removeAttribute('disabled')
+  checkBoxTemp.removeAttribute('disabled');
 
   event.target.setAttribute('class', 'material-icons editbtn') //! не меняется обратно иконка при нажатии на Enter
   event.target.textContent = 'create';
 
   li.replaceChild(newSpan, input);
 
-  localStorage.setItem('tasks', JSON.stringify(taskList.tasks));
+  storageService.set('tasks', JSON.stringify(taskList.tasks));
 
 }
 
