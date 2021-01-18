@@ -12,10 +12,11 @@
   }
 
   .bottom-buttons .add-form {
-    display: initial;
-    flex-grow: 1;
+    display: grid;
     margin: 0 0 0 5px;
     height: 100%;
+    transition: .2s;
+    width: 100%;
   }
 
   .bottom-buttons .add-form form input{
