@@ -17,7 +17,7 @@ const template = `
       </li>
 
       <li>
-        <a>List #2</a>
+        <a>List #3</a>
       </li>
     </ol>
 `;
