@@ -1,4 +1,5 @@
 import taskList from '../tasks.js';
+import storageService from '../storage-service.js'
 
 function deleteCheckedTasks() {
   const checkedTasks = document.querySelectorAll('li.checked');
@@ -6,7 +7,7 @@ function deleteCheckedTasks() {
   checkedTasks.forEach(checkedTask => checkedTask.remove());
   taskList.deleteChecked();
   
-  localStorage.setItem('tasks', JSON.stringify(taskList.tasks));
+  storageService.set('tasks', JSON.stringify(taskList.tasks));
 }
 
 export default deleteCheckedTasks;
