@@ -1,6 +1,13 @@
-import listsTemplate from './templates/pages/lists/index.js';
-import {generateId} from './utils.js';
+import {
+  generateId
+} from './utils.js';
+import {
+  createListElement
+} from './templates/pages/lists/index.js'
+import storageService from './storage-service.js'
 import listsList from './lists-list.js';
+
+import listsTemplate from './templates/pages/lists/index.js';
 
 const currentUrl = window.location.pathname;
 
@@ -19,13 +26,20 @@ if (currentUrl === '/') {
     const listName = formData.get('name');
 
     const newList = {
-      id: generateId(listsList),
-      name: listName
+      id: generateId(listsList.lists),
+      name: listName,
     };
+    console.log(newList)
+    listsList.add(newList);
 
-    listsList.add(newList)
+    createListElement(newList);
+
+    event.target.reset();
+    storageService.set('lists', JSON.stringify(listsList.lists));
+  });
+
+  listsList.lists.forEach((list) => {
+    createListElement(list);
   })
-}
 
-/* Переписать чтобы в индекс.дж список генерился из локал сторадж и что бы работало добавление.
-Дописать функционал добавления в класс. */
+}

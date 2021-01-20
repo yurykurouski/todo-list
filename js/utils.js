@@ -3,7 +3,7 @@ export function getTaskId(elemnt) {
 }
 
 export function generateId(tasks) { // *получаем массив со всеми идентификаторами таска
-  const ids = tasks.map(task => {
+  const ids = tasks.map((task) => {
     return task.id;
   });
 
