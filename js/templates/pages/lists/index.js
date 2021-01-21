@@ -9,7 +9,7 @@ const template = `
       </form>
     </div>
 
-    <div class='todo-list'>
+    <div class='lists'>
       <ol>
       </ol>
     </div>
@@ -27,9 +27,9 @@ const template = `
           </div>
     </div>
 `;
-
+//! эту функцию убрать и все настроить
 export function createListElement(list) {
-  const todoList = document.querySelector('.todo-list ol');
+  const todoList = document.querySelector('.lists ol');
   const lists = JSON.parse(storageService.get('lists'));
 
   const listEl = document.createElement('li');
