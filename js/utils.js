@@ -15,3 +15,11 @@ export function generateId(tasks) { // *получаем массив со вс�
 
   return maxId + 1; //возвращаем норвый, который будет польше максимального на единицу
 }
+
+export function getListIdByUrl() {
+  const currentUrl = window.location.pathname;
+
+  const splittedCurrentUrl = currentUrl.split('/');
+
+  return parseInt(splittedCurrentUrl[splittedCurrentUrl.length - 1], 10);
+}

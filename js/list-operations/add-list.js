@@ -1,6 +1,5 @@
 import storageService from '../storage-service.js'
 
-
 //! настроить импорты и экспорты
 export function createListElement(list) {
   const todoList = document.querySelector('.todo-list ol');
