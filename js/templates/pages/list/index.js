@@ -1,15 +1,16 @@
 const template = `
-    <div class='add-form'>
+  <div class='add-form'>
       <form>
-        <input class='input-text' name='name' name='text' autofocus required>
-        <label for='input-text' class="form-label">List name</label>
+        <input class='input-text' type='text' name='text' autofocus required>
+        <label for='input-text' class="form-label">Your new task</label>
         <button type='submit' class="material-icons" title='Add task'>add_task</button>
       </form>
     </div>
 
-    <div class='lists'>
-      <ol>
-      </ol>
+    <div class='todo-list'>
+
+      <ol></ol>
+
     </div>
 
     <div class='bottom-buttons'>
@@ -24,6 +25,6 @@ const template = `
             </form>
           </div>
     </div>
-`;
+`
 
 export default template;

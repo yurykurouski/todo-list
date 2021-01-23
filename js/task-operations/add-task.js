@@ -2,13 +2,14 @@ import checkTask from './check-task.js';
 import deleteTask from './delete-task.js';
 import editTask from './edit-task.js';
 import storageService from '../storage-service.js'
-import { generateId } from '../utils.js
-'
+import {
+  generateId,
+  getListIdByUrl
+} from '../utils.js'
 import taskList from '../tasks.js';
 
-const todoList = document.querySelector('.todo-list ol');
-
 export function createTask(task) {
+  const todoList = document.querySelector('.todo-list ol');
   const newToDo = document.createElement('li');
   // * что бы новый таск вставлялся в начало списка
   const tasks = JSON.parse(storageService.get('tasks'))
@@ -32,7 +33,6 @@ export function createTask(task) {
   newToDo.setAttribute('id', `${task.id}`);
   if (task.checked) {
     newToDo.setAttribute('class', 'checked');
-    // checkBox.setAttribute('checked', true);
     checkBox.checked = 'checked';
   }
 
@@ -54,6 +54,7 @@ export default function addTask(event) { //* вешаем обрабытия с�
 
   const newTask = {
     id: generateId(taskList.tasks),
+    parentListId: getListIdByUrl(),
     text: todoText,
     checked: false
   };
