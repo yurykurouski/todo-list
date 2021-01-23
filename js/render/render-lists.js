@@ -1,6 +1,6 @@
 import {
   createListElement
-} from '../templates/pages/lists/index.js';
+} from '../list-operations/add-list.js';
 
 import {generateId} from '../utils.js'
 import storageService from '../storage-service.js';

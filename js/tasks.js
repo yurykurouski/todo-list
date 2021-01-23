@@ -13,12 +13,24 @@ class TaskList {
     this.tasks = this.tasks.filter(task => task.id !== id);
   }
 
-  edit(id, value) {  //! Катарина сделала через .map и так правильнее
-    this.tasks.find(task => task.id === id).text = value;
+  edit(id, text) {
+    this.tasks = this.tasks.map((task) => {
+      if (task.id === id) {
+        return { ...task, text };
+      }
+
+      return task;
+    });
   }
 
-  check(id, state) {  //! и это тоже
-    this.tasks.find(task => task.id === id).checked = state;
+  check(id) {
+    this.tasks = this.tasks.map((task) => {
+      if (task.id === id) {
+        return { ...task, checked: !task.checked };
+      }
+
+      return task;
+    });
   }
 
   deleteChecked() {
