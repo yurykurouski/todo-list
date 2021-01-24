@@ -8,6 +8,7 @@ import listsList from '../lists-list.js';
 
 import listsTemplate from '../templates/pages/lists/index.js';
 
+// import deleteList from '../list-operations/delete-list.js'
 
 function renderLists() {
   const rootDiv = document.querySelector('.container');
