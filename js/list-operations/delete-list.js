@@ -1,19 +1,22 @@
-import listsList from '../lists-list';
+import listsList from '../lists-list.js';
+import taskList from '../tasks.js'
 import storageService from '../storage-service.js';
 
-function deleteList(event) { // * здесь можно ParentNode  в одну строку записать, два нода один за одним. Или через .slosest()(тоже в одну строку)
+
+function deleteList(event) {
   const {
     parentNode
   } = event.target.closest('.material-icons');
 
-  const taskId = parseInt(parentNode.id);
+  const listId = parseInt(parentNode.id.split('-')[1], 10);
 
-  listsList.delete(taskId);
+  listsList.delete(listId);
+  taskList.deleteTasksFromList(listId);
 
-  parentNode.remove()
+  parentNode.remove();
 
-  storageService.set('tasks', JSON.stringify(listsList.lists));
-
+  storageService.set('lists', JSON.stringify(listsList.lists));
+  storageService.set('tasks', JSON.stringify(taskList.tasks));
 }
 
 export default deleteList;

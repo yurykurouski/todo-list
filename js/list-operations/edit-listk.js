@@ -9,7 +9,7 @@ import {
 import storageService from '../storage-service.js'
 
 
-function submitTask(event) {
+function submitList(event) {
   if (event.keyCode !== ENTER_KEY_CODE) {
     return;
   }
@@ -26,7 +26,7 @@ function submitTask(event) {
 
 function saveTask(li, checkBoxTemp) {
   const input = li.querySelector('input[type="text"]');
-  const taskId =getTaskId(li)
+  const taskId = getTaskId(li)
   const {
     value: newText
   } = input;
@@ -48,7 +48,7 @@ function saveTask(li, checkBoxTemp) {
 
 }
 
-function editTask(event) {
+function editList(event) {
   /* 
     находим span текущего task
     записываем его содержимое в переменную
@@ -71,7 +71,7 @@ function editTask(event) {
     input.setAttribute('type', 'text');
     input.setAttribute('class', 'input-for-edit');
 
-    input.addEventListener('keydown', submitTask)
+    input.addEventListener('keydown', submitList)
 
     checkBoxTemp.setAttribute('disabled', 'disabled');
 
@@ -91,4 +91,4 @@ function editTask(event) {
 
 }
 
-export default editTask;
+// export default editList;

@@ -40,6 +40,10 @@ class TaskList {
   checkAllTasksLocalStorage() {
     this.tasks.forEach(task => task.checked = true);
   }
+
+  deleteTasksFromList(id) {
+    this.tasks = this.tasks.filter(task => task.parentListId != id);
+  }
 }
 
 const tasks = JSON.parse(storageService.get('tasks'));

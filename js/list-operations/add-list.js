@@ -1,6 +1,6 @@
 import storageService from '../storage-service.js';
 import renderList from '../render/render-list.js';
-import deleteList from '../list-operations/delete-list.js'
+import deleteList from './delete-list.js'
 
 export function createListElement(list) {
   const todoList = document.querySelector('.lists ol');
