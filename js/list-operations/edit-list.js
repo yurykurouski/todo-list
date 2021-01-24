@@ -21,10 +21,10 @@ function submitList(event) {
   btn.setAttribute('class', 'material-icons editbtn');
   btn.textContent = 'create';
 
-  saveTask(li, checkBoxTemp)
+  saveList(li, checkBoxTemp)
 }
 
-function saveTask(li, checkBoxTemp) {
+/* function saveList(li, checkBoxTemp) {
   const input = li.querySelector('input[type="text"]');
   const taskId = getTaskId(li)
   const {
@@ -46,7 +46,7 @@ function saveTask(li, checkBoxTemp) {
 
   storageService.set('tasks', JSON.stringify(taskList.tasks));
 
-}
+} */
 
 function editList(event) {
   /* 
@@ -87,8 +87,8 @@ function editList(event) {
     return;
   }
 
-  saveTask(li, checkBoxTemp);
+  // saveList(li, checkBoxTemp);
 
 }
 
-// export default editList;
+export default editList;

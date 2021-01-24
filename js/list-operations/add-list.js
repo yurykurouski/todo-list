@@ -2,6 +2,8 @@ import storageService from '../storage-service.js';
 import renderList from '../render/render-list.js';
 import deleteList from './delete-list.js'
 
+import editList from './edit-list.js';
+
 export function createListElement(list) {
   const todoList = document.querySelector('.lists ol');
   const lists = JSON.parse(storageService.get('lists'));
@@ -22,7 +24,9 @@ export function createListElement(list) {
   `;
 
   const deleteButton = document.getElementById(`delBtn${list.id}`);
+  const editButton = document.getElementById(`editBtn${list.id}`);
   deleteButton.addEventListener('click', deleteList);
+  editButton.addEventListener('click', console.log(editButton));
 
   const linkToList = listEl.querySelector('a');
 
