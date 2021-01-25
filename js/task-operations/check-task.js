@@ -1,11 +1,11 @@
 import taskList from '../tasks.js';
-import { getTaskId} from '../utils.js'
+import { getId} from '../utils.js'
 import storageService from '../storage-service.js'
 
 function checkTask(event) {
   const { target } = event;   // * здесь пример деструткуризации, свойства(target, напрмер) можно записывать несколько - через запятую
   const { parentNode: li, checked } = target;
-  const taskId = getTaskId(li);
+  const taskId = getId(li);
   
   if (checked) {
     li.classList.add('checked');

@@ -4,7 +4,7 @@ import {
 
 import taskList from '../tasks.js';
 import {
-  getTaskId
+  getId
 } from '../utils.js';
 import storageService from '../storage-service.js'
 
@@ -26,7 +26,7 @@ function submitTask(event) {
 
 function saveTask(li, checkBoxTemp) {
   const input = li.querySelector('input[type="text"]');
-  const taskId =getTaskId(li)
+  const taskId =getId(li)
   const {
     value: newText
   } = input;
