@@ -26,7 +26,7 @@ export function createListElement(list) {
   const deleteButton = document.getElementById(`delBtn${list.id}`);
   const editButton = document.getElementById(`editBtn${list.id}`);
   deleteButton.addEventListener('click', deleteList);
-  editButton.addEventListener('click', console.log(editButton));
+  editButton.addEventListener('click', editList);  //! здесь не работает 
 
   const linkToList = listEl.querySelector('a');
 
