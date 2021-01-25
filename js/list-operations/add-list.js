@@ -1,8 +1,8 @@
 import storageService from '../storage-service.js';
-import renderList from '../render/render-list.js';
 import deleteList from './delete-list.js'
 
 import editList from './edit-list.js';
+import { navigateToUrl } from '../routing.js';
 
 export function createListElement(list) {
   const todoList = document.querySelector('.lists ol');
@@ -26,18 +26,13 @@ export function createListElement(list) {
   const deleteButton = document.getElementById(`delBtn${list.id}`);
   const editButton = document.getElementById(`editBtn${list.id}`);
   deleteButton.addEventListener('click', deleteList);
-  editButton.addEventListener('click', editList);  //! здесь не работает 
+  editButton.addEventListener('click', editList);
 
   const linkToList = listEl.querySelector('a');
 
   linkToList.addEventListener('click', (event) => {
     event.preventDefault();
 
-    window.history.pushState({},
-      '/list/${list.id}',
-      window.location.origin + `/list/${list.id}`
-    );
-
-    renderList();
+    navigateToUrl(`/list/${list.id}`);
   });
 }
