@@ -8,6 +8,23 @@ class ListsList {
   add(newList) {
     this.lists = [...this.lists, newList];
   }
+
+  delete(id) {
+    this.lists = this.lists.filter(list => list.id !== id);
+  }
+
+  edit(id, name) {
+    this.lists = this.lists.map((list) => {
+      if (list.id === id) {
+        return {
+          ...list,
+          name
+        };
+      }
+
+      return list;
+    });
+  }
 }
 
 const lists = JSON.parse(storageService.get('lists'));

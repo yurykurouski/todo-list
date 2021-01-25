@@ -8,7 +8,6 @@ import listsList from '../lists-list.js';
 
 import listsTemplate from '../templates/pages/lists/index.js';
 
-
 function renderLists() {
   const rootDiv = document.querySelector('.container');
   rootDiv.innerHTML = listsTemplate;
