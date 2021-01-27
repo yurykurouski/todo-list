@@ -6,7 +6,7 @@ export default function loginUser(event) {
 
   const formData = new FormData(event.target);
 
-  cont email = formData('email');
+  const email = formData('email');
   const password = formData('password');
 
   const user = userList.getUserByEmail(email);
