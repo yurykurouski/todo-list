@@ -12,8 +12,8 @@ const template = `
       </div>
 
       <div>
-        <button type='submit'>Login</button>
-        <a href='/registration'> or sign up </a>
+        <button class='contained-button' type='submit'>Login</button>
+        <a href='/registration'> or sign in here</a>
       </div>
     </form>
   </div>

@@ -6,6 +6,8 @@ const rootDiv = document.querySelector('.container');
 export default function renderRegistration() {
   rootDiv.innerHTML = registrationTemplate;
 
+  document.title = 'Todo List - Registration';
+
   const registrationForm = document.querySelector('.registration-form > form');
 
   registrationForm.addEventListener('submit', registerUser);

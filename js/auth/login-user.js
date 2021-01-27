@@ -24,6 +24,4 @@ export default function loginUser(event) {
   }
 
   navigateToUrl('/');
-
-  event.target.reset();
-}
+} 
