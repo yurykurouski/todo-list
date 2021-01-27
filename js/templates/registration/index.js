@@ -1,16 +1,27 @@
 const template = `
   <div class='registration-form'>
     <form>
-      <label>E-mail</label>
-      <input name='email' />
+      <div class='email-wrap'>
+        <input class='email-input' name='email' autofocus required/>
+        <label for='email' class="auth-label">E-mail</label>
+      </div>
 
-      <label>Password</label>
-      <input name='password' type='password' />
-      
-      <label>Repeat password</label>
-      <input name='repeatPassword' type='password' />
+      <div class='passwords-wrap'>
+        <div>
+          <input class='password-input' name='password' type='password' required/>
+          <label for='password' class="auth-label">Password</label>
+        </div>
+        
+        <div>
+          <input class='password-input' name='repeatPassword' type='password' required/>
+          <label for='repeatPassword' class="auth-label">Repeat password</label>
+        </div>
+      </div>
 
-      <button type='submit'>Register</button>
+      <div>
+        <button type='submit'>Register</button>
+        <a href='/login'> or Login </a>
+      </div>
     </form>
   </div>
 `;

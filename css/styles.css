@@ -1,5 +1,5 @@
-:root{
-  --f-color:#F5F5F5;
+:root {
+  --f-color: #F5F5F5;
   --i-color: #26c6da;
 }
 
@@ -21,12 +21,12 @@ body {
 .container {
   display: grid;
   grid-template-areas: 'i''b''f';
-  grid-template-rows: 45px 1fr 35px;
+  grid-template-rows: minmax(45px, auto) 1fr 35px;
 
   background-color: #333333;
   border-radius: 5px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-  0 10px 10px rgba(0, 0, 0, 0.22);
+    0 10px 10px rgba(0, 0, 0, 0.22);
 
   width: 500px;
   height: 600px;
@@ -34,9 +34,10 @@ body {
   margin-top: 20px;
   padding: 0;
 }
- .bottom-buttons .add-form{
-   display: none;
- }
+
+.bottom-buttons .add-form {
+  display: none;
+}
 
 .add-form {
   grid-area: i;
@@ -52,7 +53,7 @@ body {
 .add-form input {
   flex-grow: 1;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
-  0 1px 2px rgba(0, 0, 0, 0.24);
+    0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
   background-color: #3d5afe;
   border-radius: 2em;
@@ -63,17 +64,20 @@ body {
   padding-left: 15px;
   padding-right: 5px;
 }
-.add-form input:hover{
+
+.add-form input:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-  0 10px 10px rgba(0, 0, 0, 0.22);
+    0 10px 10px rgba(0, 0, 0, 0.22);
 }
+
 .add-form input:valid,
 .add-form input:focus {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-  0 10px 10px rgba(0, 0, 0, 0.22);
+    0 10px 10px rgba(0, 0, 0, 0.22);
   background-color: #093170;
   color: grey;
 }
+
 .add-form input:focus {
   background-color: #2a3eb1;
   color: var(--f-color);
@@ -86,15 +90,17 @@ body {
   font-size: 18px;
   line-height: 34px;
   margin-left: 15px;
-  transition: .3s;
+  transition: .2s;
 }
+
 .add-form input:valid~.form-label,
 .add-form input:focus~.form-label {
   margin-top: -21px;
   font-size: 10px;
   color: grey;
 }
-.add-form input:focus~.form-label{
+
+.add-form input:focus~.form-label {
   color: whitesmoke;
 }
 
@@ -122,7 +128,7 @@ body {
   grid-template-columns: auto 1fr auto auto;
   min-height: 30px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
-  0 3px 6px rgba(0, 0, 0, 0.23);
+    0 3px 6px rgba(0, 0, 0, 0.23);
   transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
   margin-top: 5px;
   border-radius: 3px;
@@ -132,21 +138,24 @@ body {
   background: #5f5f5f;
 }
 
-.todo-list ol li input{
+.todo-list ol li input {
   position: relative;
   margin: 5px;
   padding: 0px;
   top: 4px;
 }
+
 .todo-list ol li span {
   display: inline-block;
   line-height: 30px;
   padding-left: 5px;
 }
+
 .todo-list ol li.checked .todoText {
   text-decoration: line-through #212121;
   color: grey;
 }
+
 .todo-list ol li .input-for-edit {
   display: inline-block;
   font-family: 'Roboto', sans-serif;
@@ -163,12 +172,13 @@ body {
   top: auto;
   line-height: 30px;
   color: var(--f-color);
-    border-radius: 15px;
+  border-radius: 15px;
   transition: 0.2s;
 }
-.todo-list ol li .input-for-edit:focus{
+
+.todo-list ol li .input-for-edit:focus {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
-  0 3px 6px rgba(0, 0, 0, 0.23);
+    0 3px 6px rgba(0, 0, 0, 0.23);
   border: var(--i-color);
 }
 
@@ -205,16 +215,20 @@ body {
 .delbtn:hover {
   color: #D32F2F;
 }
+
 .editbtn:hover {
   color: #f57f17;
 }
+
 .savebtn:hover {
-  color:#76ff03;
+  color: #76ff03;
 }
+
 .delete-checked-btn:hover {
   transform: scale(1.1);
   color: #D32F2F;
 }
+
 .check-all-btn:hover {
   transform: scale(1.1);
   color: #ffb851
