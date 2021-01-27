@@ -37,6 +37,8 @@ function renderLists() {
   listsList.lists.forEach((list) => {
     createListElement(list);
   });
+
+  document.title = 'Todo List - Lists list';
 };
 
 export default renderLists;
