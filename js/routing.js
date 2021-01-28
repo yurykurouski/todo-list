@@ -5,7 +5,7 @@ import renderLogin from './render/render-login.js';
 
 const listRoutePattern = /^\/list\/\d+$/;
 
-const INDEX_URLS = ['_', '/index.html'];
+const INDEX_URLS = ['/index.html', '/'];
 
 const REGISTRATION_URL = '/registration';
 
