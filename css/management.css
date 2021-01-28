@@ -95,3 +95,7 @@
 .email-wrap {
   display: flex;
 }
+
+.error {
+  color: red;
+}

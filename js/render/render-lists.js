@@ -2,11 +2,14 @@ import {
   createListElement
 } from '../list-operations/add-list.js';
 
-import {generateId} from '../utils.js'
+import {
+  generateId
+} from '../utils.js'
 import storageService from '../storage-service.js';
 import listsList from '../lists-list.js';
 
 import listsTemplate from '../templates/pages/lists/index.js';
+import currentUser from '../current-user.js';
 
 function renderLists() {
   const rootDiv = document.querySelector('.container');
@@ -23,7 +26,8 @@ function renderLists() {
 
     const newList = {
       id: generateId(listsList.lists),
-      name: listName,
+      userId: currentUser.userData.id,
+      name: listName
     };
     listsList.add(newList);
 
@@ -34,7 +38,10 @@ function renderLists() {
     storageService.set('lists', JSON.stringify(listsList.lists));
   });
 
-  listsList.lists.forEach((list) => {
+  const currentUserId = currentUser.userData.id;
+
+  listsList.lists.filter((list) => list.userId === currentUserId)
+    .forEach((list) => {
     createListElement(list);
   });
 
