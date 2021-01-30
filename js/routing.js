@@ -64,8 +64,6 @@ export function renderPage() {
     return;
   }
 
-
-
 }
 
 export function navigateToUrl(url) {

@@ -33,14 +33,14 @@ function validateRegistration({
   if (email && !EMAIL_REGEX.test(email)) {
     errors = {
       ...errors,
-      email: [...errors.email, 'Email invalid format!']
+      email: [...errors.email, 'Email invalid format.']
     };
   }
 
   if (!password) {
     errors = {
       ...errors,
-      password: [...errors.password, 'Password can not be empty!']
+      password: [...errors.password, 'Password can not be empty.']
     };
   }
 
@@ -61,7 +61,7 @@ function validateRegistration({
   if (password !== repeatPassword) {
     errors = {
       ...errors,
-      repeatPassword: [...errors.repeatPassword, 'Passwords does not match!']
+      repeatPassword: [...errors.repeatPassword, 'Passwords does not match.']
     };
   }
 
@@ -92,7 +92,6 @@ export default function registerUser(event) {
       hasErrors = true;
 
       const errorStr = errors[key].join('<br>');
-
 
       span.innerHTML = errorStr;
     } else {
