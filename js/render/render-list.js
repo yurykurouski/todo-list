@@ -9,6 +9,7 @@ import addTask, {
 } from '../task-operations/add-task.js';
 import checkAllTasks from '../task-operations/check-all-tasks.js';
 import deleteCheckedTasks from '../task-operations/delete-checked-tasks.js';
+import logOut from '../auth/log-out.js';
 
 
 function renderList() {
@@ -33,6 +34,8 @@ function renderList() {
     .forEach((task) => {
       createTask(task);
     });
+  
+  logOut();
 }
 
 export default renderList;

@@ -10,9 +10,13 @@ import listsList from '../lists-list.js';
 
 import listsTemplate from '../templates/pages/lists/index.js';
 import currentUser from '../current-user.js';
+import headerTemplate from '../templates/pages/lists/header.js';
+import renderLogin from './render-login.js';
+import logOut from '../auth/log-out.js';
 
 function renderLists() {
   const rootDiv = document.querySelector('.container');
+
   rootDiv.innerHTML = listsTemplate;
 
   const addListForm = document.querySelector('.add-form > form');
@@ -42,10 +46,12 @@ function renderLists() {
 
   listsList.lists.filter((list) => list.userId === currentUserId)
     .forEach((list) => {
-    createListElement(list);
-  });
+      createListElement(list);
+    });
 
   document.title = 'Todo List - Lists list';
+
+  logOut()
 };
 
 export default renderLists;
