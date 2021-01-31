@@ -58,7 +58,7 @@ function validateRegistration({
     };
   }
 
-  if (password !== repeatPassword) {
+  if (password !== repeatPassword && PASSWORD_REGEX.test(password) && password.length > MIN_PASSWORD_LENGTH) {
     errors = {
       ...errors,
       repeatPassword: [...errors.repeatPassword, 'Passwords does not match.']
