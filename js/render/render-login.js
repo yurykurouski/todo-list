@@ -9,6 +9,8 @@ export default function renderLogin() {
   document.title = 'Todo List - Log in';
 
   const loginForm = document.querySelector('.login-form > form');
+  const errorSpan = document.querySelectorAll('.error');
+  errorSpan.forEach((span) => span.style.display = 'none');
 
   loginForm.addEventListener('submit', loginUser);
 }

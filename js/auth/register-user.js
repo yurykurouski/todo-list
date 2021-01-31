@@ -51,7 +51,7 @@ function validateRegistration({
     };
   }
 
-  if (password && !PASSWORD_REGEX.test(password)) {
+  if (password && !PASSWORD_REGEX.test(password) && password.length > MIN_PASSWORD_LENGTH) {
     errors = {
       ...errors,
       password: [...errors.password, 'Password invalid format.']
@@ -86,13 +86,14 @@ export default function registerUser(event) {
   let hasErrors = false;
 
   for (let key in errors) {
-    const span = document.querySelector(`input[name='${key}'] + span`);
+    const span = document.querySelector(`.${key}`);
 
     if (errors[key].length > 0) {
       hasErrors = true;
 
       const errorStr = errors[key].join('<br>');
 
+      span.style.display = 'inline';
       span.innerHTML = errorStr;
     } else {
       span.innerHTML = '';

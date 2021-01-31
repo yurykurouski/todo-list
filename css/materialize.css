@@ -122,7 +122,7 @@ a:hover {
   border-radius: 4px;
   padding: 0 8px;
   min-width: 64px;
-  height: 36px;
+  height: 35px;
   vertical-align: middle;
   text-align: center;
   text-overflow: ellipsis;
@@ -132,7 +132,7 @@ a:hover {
   font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
   font-size: 14px;
   font-weight: 500;
-  line-height: 36px;
+  line-height: 35px;
   overflow: hidden;
   outline: none;
   cursor: pointer;
