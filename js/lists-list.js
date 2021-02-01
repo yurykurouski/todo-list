@@ -21,9 +21,12 @@ class ListsList {
           name
         };
       }
-
       return list;
     });
+  }
+
+  getListById(id) {
+    return this.lists.find(list => list.id === id);
   }
 }
 

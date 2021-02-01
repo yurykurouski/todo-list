@@ -15,6 +15,7 @@ const template = `
     <div class='bottom-buttons'>
       <button class="material-icons check-all-btn" title='Check all tasks'>done_all</button>
       <button class="material-icons delete-checked-btn" title='Delete checked tasks' >delete_sweep</button>
+      <button type='button' class="contained-button logout">Log out</button>
 
           <div class='add-form'>
             <form>

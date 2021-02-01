@@ -23,3 +23,23 @@ export function getListIdByUrl() {
 
   return parseInt(splittedCurrentUrl[splittedCurrentUrl.length - 1], 10);
 }
+
+export function showErrors(errors) {
+  for (let key in errors) {
+    const span = document.querySelector(`.${key}`);
+
+    if (errors[key].length > 0) {
+
+      const errorStr = errors[key].join('<br>');
+
+      span.style.display = 'inline';
+      span.innerHTML = errorStr;
+    } else {
+      span.innerHTML = '';
+    }
+  }
+}
+
+export function checkIfHasErrors(errors) {
+  return Object.keys(errors).some(key => errors[key].length > 0);
+}
