@@ -1,16 +1,40 @@
-import {
-  getListIdByUrl
-} from '../utils.js';
-import taskList from '../tasks.js';
+
 import listTemplate from '../templates/pages/list/index.js';
 
-import addTask, {
-  createTask
-} from '../task-operations/add-task.js';
+import addTask from '../task-operations/add-task.js';
 import checkAllTasks from '../task-operations/check-all-tasks.js';
 import deleteCheckedTasks from '../task-operations/delete-checked-tasks.js';
 import logOut from '../auth/log-out.js';
+import renderTasks from './render-tasks.js';
+import taskList from '../tasks.js';
+import { getId } from '../utils.js';
 
+export function addDnD() {
+  const listItems = document.querySelectorAll('li');
+
+  let dragging;
+  let draggingOver;
+
+  listItems.forEach((listItem) => {
+    listItem.setAttribute('draggable', true);
+
+    listItem.addEventListener('drag', (event) => {
+      dragging = event.target;
+    });
+
+    listItem.addEventListener('dragover', (event) => {
+      event.preventDefault();
+
+      draggingOver = event.target.closest('li');
+    });
+
+    listItem.addEventListener('drop', () => {
+      taskList.swap(getId(dragging), getId(draggingOver));
+
+      renderTasks();
+    });
+  });
+}
 
 function renderList() {
   const rootDiv = document.querySelector('.container');
@@ -27,14 +51,8 @@ function renderList() {
   deleteCheckedBtn.addEventListener('click', deleteCheckedTasks);
   checkAllTasksBtn.addEventListener('click', checkAllTasks);
 
-  const listId = getListIdByUrl();
+  renderTasks();
 
-  taskList.tasks
-    .filter((task) => task.parentListId === listId)
-    .forEach((task) => {
-      createTask(task);
-    });
-  
   logOut();
 }
 

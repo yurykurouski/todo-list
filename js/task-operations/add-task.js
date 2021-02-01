@@ -8,8 +8,10 @@ import {
 } from '../utils.js'
 import taskList from '../tasks.js';
 
+
 export function createTask(task) {
   const todoList = document.querySelector('.todo-list ol');
+
   const newToDo = document.createElement('li');
   // * что бы новый таск вставлялся в начало списка
   const tasks = JSON.parse(storageService.get('tasks'))
