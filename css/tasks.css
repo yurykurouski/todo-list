@@ -243,11 +243,9 @@ body {
 
 .logout {
   height: max-content !important;
-  line-height: 20px !important;
-  /* display:inline-block !important; */
-  /* vertical-align: bottom !important; */
+  line-height: 16px !important;
   margin-left: auto;
-  margin-top: 5px !important;
+  margin-top: 10px !important;
   padding: 0 4px !important;
 }
 
