@@ -5,7 +5,8 @@ import {
 import storageService from "../storage-service.js";
 import userList from "../users.js";
 import {
-  generateId
+  checkIfHasErrors,
+  generateId, showErrors
 } from "../utils.js";
 
 const EMAIL_REGEX = /\S+@\S+\.\S+/;
@@ -83,26 +84,13 @@ export default function registerUser(event) {
     repeatPassword
   });
 
-  let hasErrors = false;
-
-  for (let key in errors) {
-    const span = document.querySelector(`.${key}`);
-
-    if (errors[key].length > 0) {
-      hasErrors = true;
-
-      const errorStr = errors[key].join('<br>');
-
-      span.style.display = 'inline';
-      span.innerHTML = errorStr;
-    } else {
-      span.innerHTML = '';
-    }
-  }
+  showErrors(errors);
+  
+  const hasErrors = checkIfHasErrors(errors);
 
   if (hasErrors) {
     return;
-  }
+  };
 
   const hashedPassword = CryptoJS.SHA3(password)
 
@@ -110,7 +98,7 @@ export default function registerUser(event) {
     id: generateId(userList.users),
     email,
     password: hashedPassword.toString()
-  };
+  }
 
   try {
     userList.add(newUser);

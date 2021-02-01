@@ -1,17 +1,16 @@
 import currentUser from "../current-user.js";
-import renderLogin from "../render/render-login.js";
+import { navigateToUrl, LOGIN_URL } from "../routing.js";
 import storageService from "../storage-service.js";
-import headerTemplate from "../templates/pages/lists/header.js";
 
 function logOut() {
 
   const logOutBtn = document.querySelector('.logout');
 
   logOutBtn.addEventListener('click', () => {
-    // currentUser.logout();  //! не работает почему-то метод
-    storageService.set('currentUser', JSON.stringify(null));
-    renderLogin()
-  })
+    currentUser.logout();
+    storageService.set('currentUser', JSON.stringify(currentUser.userData));
+    navigateToUrl(LOGIN_URL);
+  });
 }
 
 export default logOut;

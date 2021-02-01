@@ -14,29 +14,20 @@ const INDEX_URLS = ['/index.html', '/'];
 
 const REGISTRATION_URL = '/registration';
 
-const LOGIN_URL = '/login';
+export const LOGIN_URL = '/login';
 
 export function renderPage() {
   const {
     pathname: currentUrl
   } = window.location;
 
-  if (currentUrl === REGISTRATION_URL) {
-    if (currentUser.userData) {
-      renderLists();
-      return;
-    }
-
+  if (!currentUser.userData && currentUrl === REGISTRATION_URL) {
     renderRegistration();
 
     return;
   }
 
-  if (currentUrl === LOGIN_URL) {
-    if (currentUser.userData) {
-      renderLists();
-      return;
-    }
+  if (!currentUser.userData && currentUrl === LOGIN_URL) {
     renderLogin();
 
     return;
@@ -75,6 +66,7 @@ export function renderPage() {
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   });
 
+  navigateToUrl('/');
 }
 
 export function navigateToUrl(url) {

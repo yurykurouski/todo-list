@@ -4,6 +4,7 @@ import {
 } from "../routing.js";
 import storageService from "../storage-service.js";
 import userList from "../users.js";
+import { checkIfHasErrors, showErrors } from "../utils.js";
 
 const EMAIL_REGEX = /\S+@\S+\.\S+/;
 
@@ -75,22 +76,9 @@ export default function loginUser(event) {
     hashedPassword
   });
 
-  let hasErrors = false;
+  showErrors(errors);
 
-  for (let key in errors) {
-    const span = document.querySelector(`.${key}`);
-
-    if (errors[key].length > 0) {
-      hasErrors = true;
-
-      const errorStr = errors[key].join('<br>');
-
-      span.style.display = 'inline';
-      span.innerHTML = errorStr;
-    } else {
-      span.innerHTML = '';
-    }
-  }
+  const hasErrors = checkIfHasErrors(errors);
 
   if (hasErrors) {
     return;
