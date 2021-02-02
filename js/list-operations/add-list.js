@@ -3,7 +3,6 @@ import deleteList from './delete-list.js'
 
 import editList from './edit-list.js';
 import { navigateToUrl } from '../routing.js';
-import currentUser from '../current-user.js';
 
 export function createListElement(list) {
   const todoList = document.querySelector('.lists ol');

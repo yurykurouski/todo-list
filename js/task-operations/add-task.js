@@ -7,10 +7,13 @@ import {
   getListIdByUrl
 } from '../utils.js'
 import taskList from '../tasks.js';
-
+import renderTasks from '../render/render-tasks.js';
 
 export function createTask(task) {
   const todoList = document.querySelector('.todo-list ol');
+  const motivatingText = document.querySelector('.todo-list span');
+  
+  motivatingText.style.display = 'none';
 
   const newToDo = document.createElement('li');
   // * что бы новый таск вставлялся в начало списка
@@ -41,6 +44,7 @@ export function createTask(task) {
   checkBox.addEventListener('change', checkTask);
   deleteButton.addEventListener('click', deleteTask);
   editBtn.addEventListener('click', editTask);
+
 }
 
 export default function addTask(event) { //* вешаем обрабытия сабмит на форму
@@ -64,6 +68,8 @@ export default function addTask(event) { //* вешаем обрабытия с�
   taskList.add(newTask);
 
   createTask(newTask);
+
+  renderTasks();
 
   event.target.reset(); // очищаем форму
 

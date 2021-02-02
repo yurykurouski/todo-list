@@ -7,7 +7,10 @@ import deleteCheckedTasks from '../task-operations/delete-checked-tasks.js';
 import logOut from '../auth/log-out.js';
 import renderTasks from './render-tasks.js';
 import taskList from '../tasks.js';
-import { getId } from '../utils.js';
+import { getId, getListIdByUrl } from '../utils.js';
+import storageService from '../storage-service.js';
+import listsList from '../lists-list.js';
+import renderLists from './render-lists.js';
 
 export function addDnD() {
   const listItems = document.querySelectorAll('li');
@@ -29,17 +32,25 @@ export function addDnD() {
     });
 
     listItem.addEventListener('drop', () => {
+
       taskList.swap(getId(dragging), getId(draggingOver));
 
       renderTasks();
     });
   });
+
+  storageService.set('tasks', JSON.stringify(taskList.tasks))
 }
 
 function renderList() {
   const rootDiv = document.querySelector('.container');
 
   rootDiv.innerHTML = listTemplate;
+
+  const inputPlaceholder = rootDiv.querySelector('.form-label');
+  const currentListName = listsList.getListById(getListIdByUrl()).name;
+
+  inputPlaceholder.textContent = `${currentListName}...`;
 
   const addForm = document.querySelector('.add-form > form'); // находим форму добавления
   const addFormMobile = document.querySelector('.bottom-buttons .add-form > form'); // находим форму добавления
@@ -54,6 +65,7 @@ function renderList() {
   renderTasks();
 
   logOut();
+
 }
 
 export default renderList;
