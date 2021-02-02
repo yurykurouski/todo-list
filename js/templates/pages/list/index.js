@@ -2,7 +2,7 @@ const template = `
   <div class='add-form'>
       <form>
         <input class='input-text' type='text' name='text' autofocus required>
-        <label for='input-text' class="form-label">Your new task...</label>
+        <label for='input-text' class="form-label"></label>
         <button type='submit' class="material-icons" title='Add task'>add_task</button>
       </form>
     </div>
