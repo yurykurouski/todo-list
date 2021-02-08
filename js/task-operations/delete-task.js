@@ -15,8 +15,6 @@ function deleteTask(event) { // * здесь можно ParentNode  в одну 
 
   storageService.set('tasks', JSON.stringify(taskList.tasks));
 
-  renderList();
-
 }
 
 export default deleteTask;

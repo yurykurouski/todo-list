@@ -10,7 +10,6 @@ import taskList from '../tasks.js';
 import { getId, getListIdByUrl } from '../utils.js';
 import storageService from '../storage-service.js';
 import listsList from '../lists-list.js';
-import renderLists from './render-lists.js';
 
 export function addDnD() {
   const listItems = document.querySelectorAll('li');

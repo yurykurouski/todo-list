@@ -9,8 +9,6 @@ const template = `
 
     <div class='todo-list'>
 
-      <span>You have nothing to do right now</span>
-
       <ol></ol>
 
     </div>
